@@ -6,7 +6,7 @@ import iconGoogle from "./img/iconGoogle.svg";
 function MainPage() {
   return (
     <main className="mainPage">
-      <img className="loginBackground" src="" alt="" />
+      <div className="loginBackground"></div>
       <div className="logoName">
         <img className="logoAudn" src={Audn} alt="audn" />
         <h2 className="logoMusic">Música a medida.</h2>
@@ -28,7 +28,7 @@ function MainPage() {
           </button>
         </div>
         <div className="divLogin">
-          <button className="linkLogin">Iniciar seción</button>
+          <button className="btnLogin">Iniciar seción</button>
         </div>
       </section>
     </main>

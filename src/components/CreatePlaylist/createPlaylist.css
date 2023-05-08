@@ -1,0 +1,31 @@
+
+     .mainPlaylist {
+        width: 100vw;
+        height: 100vh;
+    } 
+    .topGradient {
+        position: absolute;
+        width: 100%;
+        height: 25%;
+        background: linear-gradient(360deg,rgba(253, 254, 255, 0) 25%, rgba(255, 142, 10, 0.534586) 75%, rgba(255, 142, 10, 0.9) 100%);
+        background-size: 25%;
+    }
+    .navTitle {
+     display: flex;
+     align-items: center;
+     color: #26262E;
+     position: absolute;
+    } 
+    #imgArrow {
+        width: 20px;
+        height: 23px;
+        top: 20px;
+        left: 20px;
+        position: absolute;
+    }
+    h2 {
+       margin-top: 25%;
+    }
+    h3{ 
+        margin-left: 8rem;
+    }
