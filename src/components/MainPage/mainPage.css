@@ -1,0 +1,111 @@
+.mainPage {
+    width: 376px;
+    height: 791px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logoName { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logoAudn {
+    position: absolute;
+    width: 207.64px;
+    height: 72px;
+    left: 80px;
+    top: 176px;
+}
+.logoMusic {
+    position: absolute;
+    width: 196px;
+    height: 31px;
+    left: 86px;
+    top: 271.63px;
+    
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 31px;
+    /* identical to box height */
+    
+    text-align: center;
+    letter-spacing: -0.794434px;
+    
+    /* Medios Tonos/Gris 5 */
+    
+    color: #26262E;
+}
+.btnSections { 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+    position: absolute;
+    width: 320px;
+    height: 256px;
+    top: 480px;
+}
+.btnRegister {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 12px;
+    width: 320px;
+    height: 48px;
+    background: #FF8E0A;
+    border-radius: 0px 16px;
+}
+
+ .btnOthers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 12px;
+    width: 320px;
+    height: 48px; 
+    border: 2px solid black;
+    border-radius: 0px 16px;
+} 
+.btnRegister:hover {
+    border-color: #FF8E0A;
+ }
+ 
+.btnOthers:hover {
+   border-color: black;
+}
+
+.btnLogin {
+    width: 320px;
+    height: 48px;
+}
+.btnLogin:hover {
+    border-color: none;
+ }
+ 
+.divLogin {
+    margin-top: 3rem;
+}
+.loginBackground {
+    display: flex;
+    
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    width: 376px;
+    height: 792px;
+    top: 0px;
+    background: url('./img/log-in-background.png');
+    mix-blend-mode: multiply;
+    opacity: 0.5;
+}
+
