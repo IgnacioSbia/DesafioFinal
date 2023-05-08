@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+.navMainDiv a, .navMainDiv a:visited, .navMainDiv a:hover, .navMainDiv a:active {
+    color: inherit;
+    text-decoration: none;
+  }
+
+.navMainDiv {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    text-align: center;
+    background:  linear-gradient(180deg, rgba(253, 254, 255, 0) 25%, rgba(255, 141, 10, 0.288) 75%, rgba(255, 141, 10, 0.363) 100%);
+}
+
+.navHome {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+.navSearch {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+.navProfile {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+.navFriends {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.navInactive {
+    opacity: 35%;
+}
