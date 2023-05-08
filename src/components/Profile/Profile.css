@@ -1,0 +1,72 @@
+
+@media(max-width:368px) {
+    .profileHeader{
+        background: linear-gradient(360deg, rgba(253, 254, 255, 0) 25%, rgba(102, 149, 175, 0.315) 75%, rgba(102, 149, 175, 0.534) 100%);
+        display: flex;
+        justify-content: space-around;
+        height: 150px;
+        text-align: center;
+    }
+    .profileConfigButton{
+        border-radius: 15px;
+        width: 35px;
+        height: 35px;
+        border: none;
+        position: absolute;
+        top: 65px;
+        right: 45px;
+    }
+    .profileUserInfo{
+        margin-top: 50px;
+    }
+    .profilePlaylistSection{
+        display: flex;
+        align-self: center;
+        position: relative;
+        top: 160px;
+        padding: 3px;
+        justify-content: space-around;
+        width: 329px;
+        left: 20px;
+    }
+    .profileCreatePlaylist{
+        background-color: #FF8E0A;
+        color: white;
+        border: none;
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+        border-radius: 0px 8px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        width: 100px;
+    }
+    .profileCreatedPlaylists{
+        display: flex;
+        flex-wrap: wrap;
+        position: absolute;
+        text-align: center;
+        top: 370px;
+        left: 20px;
+        
+        
+    }
+    .profileCreatedPlaylistsList{
+        display: flex;
+        height: 360px;
+        flex-wrap: wrap;
+        overflow: hidden;
+        overflow-y: scroll;
+        list-style: none;
+    }
+    .profileMain{
+        height: 50%;
+    }
+    .profileFooter{
+        
+        z-index: 2;
+    }
+   
+}
