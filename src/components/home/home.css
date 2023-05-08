@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    text-decoration: none;
 }
 @media(max-width:368px) {
     header.homeHeader{
@@ -37,12 +38,36 @@
         position: relative;
         left: 20px;
         right: auto;
+        box-shadow: 0.2px 0.2px 0.2px 0.2px gray;
+    }
+    .homeImg{
+        border-radius: 0px 0px 0px 24px;
+        height: 95px;
     }
     .homeMusicalCupidText{
+        font-family: 'Rubik', sans-serif;
         padding-top: 9.5px;
         padding-bottom: 9.5px;
+        padding-left: 15px;
     }
     .homeContentTitle{
+        color: #26262E;
+        font-style: normal;
+        font-weight: bolder;
+        font-size: 19px;
+        line-height: 21px;
         padding-bottom: 4px;
+    }
+    .homeContextMusic{
+        margin-top: 10px;
+        width: 320px;
+        background: #FDFEFF;
+        border-radius: 0px 24px;
+        display:flex;
+        justify-content: center;
+        position: relative;
+        left: 20px;
+        right: auto;
+        box-shadow: 0.2px 0.2px 0.2px 0.2px gray;
     }
 }

@@ -4,6 +4,7 @@ import notify from './Images/Notify.svg'
 import './Home.css'
 import musicCupid from './Images/MusicalCupid.svg'
 import conextMusic from './Images/contexMusic.svg'
+import { Link } from 'react-router-dom'
 
 function Home() {
   return (
@@ -20,19 +21,28 @@ function Home() {
         </header>
 
         <main className='homeMain'>
-          <div className='homeMusicalCupid'>
-            <div>
-              <img src={musicCupid}/>
-              
+          <Link to={'MusicalCupid'}>
+            <div className='homeMusicalCupid'>
+              <div>
+                <img className='homeImg' src={musicCupid}/>
+              </div>
+              <div className='homeMusicalCupidText'>
+                <h2 className='homeContentTitle'>Cupido Musical</h2>
+                <p style={{color: '#45464B'}}>Tus artistas favoritos nunca van a dejarte con el rozaón roto.</p>
+              </div>
             </div>
-            <div className='homeMusicalCupidText'>
-              <h2 className='homeContentTitle'>Cupido Musical</h2>
-              <p>Tus artistas favoritos nunca van a dejarte con el rozaón roto.</p>
+          </Link>
+          <Link to={'ContextMusic'}>
+            <div className='homeContextMusic'>
+              <div>
+                <img className='homeImg' src={conextMusic}/>
+              </div>
+              <div className='homeMusicalCupidText'>
+                <h2 className='homeContentTitle'>Música Contextual</h2>
+                <p style={{color: '#45464B'}}>Creamos la playlist perfecta para cualquier situación.</p>
+              </div> 
             </div>
-          </div>
-          <div>
-          <img src={conextMusic}/>
-          </div>
+          </Link>
         </main>
     </>
   )
