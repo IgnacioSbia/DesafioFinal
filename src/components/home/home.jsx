@@ -1,23 +1,26 @@
-import React from 'react'
-import refresh from './Images/Refresh.svg'
-import notify from './Images/Notify.svg'
-import './Home.css'
-import musicCupid from './Images/MusicalCupid.svg'
-import conextMusic from './Images/contexMusic.svg'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import refresh from './Images/Refresh.svg';
+import notify from './Images/Notify.svg';
+import './Home.css';
+import musicCupid from './Images/MusicalCupid.svg';
+import conextMusic from './Images/contexMusic.svg';
+import { Link } from 'react-router-dom';
+import NavBar from '../NavigationBar/NavBar.jsx';
 
 function Home() {
   return (
     <>
         <header className='homeHeader'>
+            
             <div className='homeHeaderTitle'>
-             <h1>Música ya</h1>
+             <h1 className='homeMusicNow'>Música ya</h1>
             </div>
 
             <div className='homeHeaderButtons'>
               <button className='homeButton1'><img src={refresh}/></button>
               <button className='homeButton2'><img src={notify}/> </button>
-            </div>
+             </div>
+            
         </header>
 
         <main className='homeMain'>
@@ -44,6 +47,9 @@ function Home() {
             </div>
           </Link>
         </main>
+        <footer>
+          <NavBar/>
+        </footer>
     </>
   )
 }
