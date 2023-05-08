@@ -15,6 +15,8 @@ function NavBar() {
   const location = useLocation();
 
   //Cambiar icono home dependiendo de la URL
+    //Hay que cambiar las rutas (/navtestX) a su correcta pagina
+  // Cambiar icono home
   let navIconHome;
   if (location.pathname === '/navtest1') {
     navIconHome = homeIconActive;
@@ -36,7 +38,7 @@ function NavBar() {
   } else navIconFriends = friendsIcon
 
 
-  
+  //Hay que cambiar las rutas (/navtestX) a su correcta pagina
   return (
     <div className='navMainDiv'>
       <Link to='/navtest1'>
