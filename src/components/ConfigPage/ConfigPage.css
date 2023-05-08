@@ -1,0 +1,67 @@
+* {
+    font-family: 'Rubik', sans-serif;
+}
+body {
+    width: 100%;
+}
+.configtopgradient {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    /* background: linear-gradient(0deg, rgba(253, 254, 255, 0) 25%, rgba(255, 142, 10, 0.534586) 75%, rgba(255, 142, 10, 0.8) 100%);; */
+    background: linear-gradient(360deg, rgba(253, 254, 255, 0) 25%, rgba(255, 141, 10, 0.288) 75%, rgba(255, 141, 10, 0.363) 100%);;
+    z-index: -1;
+}
+
+.configcontainer {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 23px;
+}
+.configtop {
+    width: 100%;
+    display: flex;
+    margin-top: 10%;
+}
+.configheader {
+    margin: 0 auto;
+}
+
+.configmain {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 9%;
+}
+.configbutton1 button, .configbutton2 button {
+    width: 90%;
+    height: 60px;
+    color: #ffffff;
+    font-size: 23px;
+    border: 0;
+    border-radius: 0% 25px 0px;
+}
+.configbutton1 {
+    margin-bottom: 10px;
+    
+}
+.configbutton1 button {
+    background-color: #FF8E0A;
+}
+.configbutton2 button {
+    background-color: #26262E;
+}
+
+.configfooter {
+    position: relative;
+    top: 190%;
+}
+.configversion {
+    margin-bottom: 10px;
+}
+.configlogout {
+    margin-top: 20px;
+}
