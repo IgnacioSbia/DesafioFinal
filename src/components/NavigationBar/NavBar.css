@@ -17,7 +17,7 @@
     justify-content: space-around;
     align-items: flex-end;
     text-align: center;
-    background:  linear-gradient(180deg, rgba(253, 254, 255, 0) 25%, rgba(255, 142, 10, 0.534586) 75%, rgba(255, 142, 10, 0.9) 100%);;
+    background:  linear-gradient(180deg, rgba(253, 254, 255, 0) 25%, rgba(255, 141, 10, 0.288) 75%, rgba(255, 141, 10, 0.363) 100%);
 }
 
 .navHome {

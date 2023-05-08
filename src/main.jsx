@@ -11,7 +11,7 @@ import NavBar from './components/NavigationBar/NavBar.jsx'
  
 const Router = createBrowserRouter ([
   { path: "/",element: <App/>},
-{ path: "/profileconfig",element: <ConfigPage/>}, 
+  { path: "/profileconfig",element: <ConfigPage/>}, 
   //eliminar navtest, es solo para testing
   { path: "/navtest1",element: <NavBar/>},
   { path: "/navtest2",element: <NavBar/>},

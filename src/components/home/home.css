@@ -10,6 +10,14 @@
         justify-content: space-around;
         height: 150px;
     }
+    .homeMusicNow{
+        font-family: 'Rubik', sans-serif;
+        color: #26262E;
+        font-style: normal;
+        font-weight: bolder;
+        font-size: 30px;
+        line-height: 36px;
+    }
     .homeButton1{
         background: none;
         padding-right: 10px;
@@ -23,11 +31,11 @@
         display: flex;
         align-items: start;
         position: relative;
-        top: 41px;
+        top: 55px;
     }
     .homeHeaderTitle{
         position: relative;
-        top: 30px;
+        top: 45px;
     }
     .homeMusicalCupid{
         width: 320px;
