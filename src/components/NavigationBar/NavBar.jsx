@@ -23,7 +23,7 @@ function NavBar() {
   } else navIconHome = homeIcon
   // Cambiar icono search
   let navIconSearch;
-  if (location.pathname === '/navtest2') {
+  if (location.pathname === '/search') {
     navIconSearch = searchIconActive;
   } else navIconSearch = searchIcon
   //Cambiar icono profile
@@ -44,8 +44,8 @@ function NavBar() {
       <Link to='/Home'>
       <div className={`navHome ${location.pathname !== '/Home' ? 'navInactive' : ''}`}><img src={navIconHome}></img>Inicio</div>
       </Link>
-      <Link to='/navtest2'>
-      <div className={`navSearch ${location.pathname !== '/navtest2' ? 'navInactive' : ''}`}><img  src={navIconSearch} ></img>Buscador</div>
+      <Link to='/search'>
+      <div className={`navSearch ${location.pathname !== '/search' ? 'navInactive' : ''}`}><img  src={navIconSearch} ></img>Buscador</div>
       </Link>
       <Link to='/Profile'>
       <div className={`navProfile ${location.pathname !== '/Profile' ? 'navInactive' : ''}`}><img  src={navIconProfile} ></img>Perfil</div>
