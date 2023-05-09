@@ -12,6 +12,8 @@ import Login from './components/Login/Login.jsx'
 import PlaylistByCupid from './Components/PlaylistByCupid/PlaylistByCupid.jsx'
 import ConfigPage from './Components/ConfigPage/ConfigPage.jsx'
 import SearchPage from './components/SearchPage/SearchPage.jsx'
+import PlaylistByUser from './components/PlaylistByUser/PlaylistByUser.jsx'
+
 
 
  
@@ -22,8 +24,9 @@ const Router = createBrowserRouter ([
   {path: "/Home", element: <Home/>},
   {path: "/Home/MusicalCupid", element: <PlaylistByCupid/>},
   { path: "/Profile",element: <Profile/>}, 
-  {path: "/Profile/Config", element: <ConfigPage/>}
+  {path: "/Profile/Config", element: <ConfigPage/>},
   { path: "/search",element: <SearchPage/>}, 
+  { path: "/profile/playlist",element: <PlaylistByUser/>}
  ])
 
 

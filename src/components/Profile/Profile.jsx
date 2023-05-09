@@ -24,16 +24,19 @@ function Profile() {
                 <h2>Mis playlists</h2>
                 <img src={profilePlaylistLine}/>
                 <button className='profileCreatePlaylist'>Crear Playlist</button>
+                
             </div>
 
             <div className='profileCreatedPlaylists'>
                 <ul className='profileCreatedPlaylistsList'>
                     <li>
+                    <Link to ='/profile/playlist'>
                         <div>
                             <img src={profilePlaylistImg}/>
                             <h3>Nombre De Prueba</h3>
                             <p>Descripcion De </p>
                         </div>
+                        </Link>
                     </li>
                 </ul>
             </div>
