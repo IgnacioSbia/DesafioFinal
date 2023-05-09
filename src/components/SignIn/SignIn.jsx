@@ -4,11 +4,19 @@ import leftArrow from "./Img/leftArrow.svg";
 
 function SignIn() {
   const [email, setEmail] = useState("");
+  const [validEmail, setValidEmail] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Correo electrónico: ${email}`);
     // Aca va código para enviar el correo electrónico al servidor
+  };
+
+  const handleEmailChange = (event) => {
+    const emailValue = event.target.value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setEmail(emailValue);
+    let isValid = emailRegex.test(emailValue);
+    setValidEmail(isValid);
   };
 
   return (
@@ -34,13 +42,13 @@ function SignIn() {
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmailChange}
               className="inputBorderSignIn"
-            />
+              />
           </label>
           <p className="textConfirmationSignIn">Deberás poder confirmar luego.</p>
           <br />
-          <button type="submit" className="buttonSignIn" disabled>
+          <button type="submit" className="buttonSignIn" disabled={validEmail ? false : true } >
             Continuar
           </button>
         </div>
