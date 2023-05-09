@@ -2,6 +2,7 @@ import Audn from "./img/audnSmall.svg";
 import "./mainPage.css";
 import iconApple from "./img/iconApple.svg";
 import iconGoogle from "./img/iconGoogle.svg";
+import { Link } from "react-router-dom";
 
 function MainPage() {
   return (
@@ -13,7 +14,9 @@ function MainPage() {
       </div>
       <section className="btnSections">
         <div>
-          <button className="btnRegister">Registrarse Gratis</button>
+          <Link to="/">
+            <button className="btnRegister">Registrarse Gratis</button>
+          </Link>
         </div>
         <div>
           <button className="btnOthers">
@@ -28,7 +31,9 @@ function MainPage() {
           </button>
         </div>
         <div className="divLogin">
-          <button className="btnLogin">Iniciar seción</button>
+          <Link to="">
+            <button className="btnLogin">Iniciar seción</button>
+          </Link>
         </div>
       </section>
     </main>

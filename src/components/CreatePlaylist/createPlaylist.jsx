@@ -1,22 +1,60 @@
 import "./createPlaylist.css";
 import arrowLeft from "./img/arrowLeft.svg";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 function CreatePlaylist() {
+  const [inputValue, setInputValue] = useState("");
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+
+  function buttonHability(event) {
+    setInputValue(event.target.value);
+    setButtonDisabled(event.target.value === "");
+  }
+
   return (
     <main className="mainPlaylist">
       <div className="topGradient">
         <nav className="navTitle">
           <div className="arrowLeft">
-            <img id="imgArrow" src={arrowLeft} alt="arrowLeft" />
+            <Link to="/">
+              <img id="imgArrow" src={arrowLeft} alt="arrowLeft" />
+            </Link>
           </div>
-          <h3>Crear playlist</h3>
+          <div>
+            <h3>Crear playlist</h3>
+          </div>
         </nav>
-        <h2>¿Cómo se llamará tu playlist?</h2>
+        <article className="title">
+          <h2>
+            ¿Cómo se llamará tu
+            <br />
+            playlist?
+          </h2>
+        </article>
       </div>
-      <section>
-        <label className="labelPlaylist" for="namePlaylist">
+      <section className="sectionInput">
+        <label className="labelPlaylist" htmlFor="namePlaylist">
           Nombre de la Playlist:
         </label>
-        <input type="text" id="namePlaylist"></input>
+        <br />
+        <input
+          type="text"
+          value={inputValue}
+          onChange={buttonHability}
+          id="namePlaylist"
+        ></input>
+      </section>
+      <section className="sectionBtn">
+        <Link to="">
+          <button
+            id="buttonContinue"
+            disabled={buttonDisabled}
+            className="btnContinue"
+          >
+            Continuar
+          </button>
+        </Link>
       </section>
     </main>
   );
