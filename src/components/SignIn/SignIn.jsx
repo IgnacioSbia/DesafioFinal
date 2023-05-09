@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./SignIn.css";
 import leftArrow from "./Img/leftArrow.svg";
+import { Link } from "react-router-dom";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ function SignIn() {
       <div className="formContainer">
         <section className="formAccountText">
           {" "}
-          <img src={leftArrow} className="leftArrow" />
+          <Link to={'/'}><img src={leftArrow} className="leftArrow" /></Link>
           <div>
             <h5>Crear cuenta</h5>
           </div>

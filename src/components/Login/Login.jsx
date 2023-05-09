@@ -3,6 +3,7 @@ import "./Login.css";
 import leftArrow from "../SignIn/Img/leftArrow.svg";
 import checkbox from "../SignIn/Img/checkbox.svg";
 import checkboxOk from "../SignIn/Img/checkboxOk.svg";
+import { Link } from "react-router-dom";
 
 
 
@@ -28,9 +29,9 @@ function Login() {
       <div className="formContainer">
         <section className="formAccountText">
           {" "}
-          <img src={leftArrow} className="leftArrow" />
+          <Link to={'/'}><img src={leftArrow} className="leftArrow" /></Link>
           <div>
-            <h5>Crear cuenta</h5>
+            <h5>Iniciar Sesión</h5>
           </div>
         </section>{" "}
         <br />
@@ -44,7 +45,7 @@ function Login() {
         <div className="formSignIn">
           <label>
             <br />
-            Nombre de usuario: <br />
+            Nombre de usuario o E-mail: <br />
             <input
               type="text"
               value={name}
@@ -56,13 +57,13 @@ function Login() {
             <br />
             Contraseña: <br />
             <input
-              type="text"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="inputBorder"
             />
           </label>
-          <p>Deberá contener al menos 8 caracteres.</p>
+        
           <br />
           <div className="formTerms"> 
           <img src={isChecked ? checkboxOk : checkbox} className="inputCheck" onClick={handleCheckboxChange} />
@@ -72,7 +73,7 @@ function Login() {
           <br />
 
           <button type="submit" className="buttonLogin" disabled>
-            Continuar
+            Iniciar Sesión
           </button>
         </div>
       </form>
