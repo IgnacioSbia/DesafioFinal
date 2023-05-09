@@ -6,12 +6,14 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './Components/Home/home.jsx'
 import Profile from './Components/Profile/Profile.jsx'
 import ConfigPage from './components/ConfigPage/ConfigPage.jsx'
+import SearchPage from './components/SearchPage/SearchPage.jsx'
 
  
 const Router = createBrowserRouter ([
   { path: "/",element: <App/>},
   {path: "/Home", element: <Home/>},
   { path: "/Profile",element: <Profile/>}, 
+  { path: "/search",element: <SearchPage/>}, 
   {path: "/profileconfig", element: <ConfigPage/>}
  ])
 
