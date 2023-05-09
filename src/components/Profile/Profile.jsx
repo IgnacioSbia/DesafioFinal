@@ -15,7 +15,7 @@ function Profile() {
                 <img id='profileUserImg' src={profileImg}/>
                 <h1>Maria Pérez</h1>
                 <p>@mara_pg</p>
-                <Link to={'/profileconfig'}><button className='profileConfigButton'><img src={profileConfigImg}/></button></Link>
+                <Link to={'/profile/config'}><button className='profileConfigButton'><img src={profileConfigImg}/></button></Link>
             </div>
         </header>
         <main className='profileMain'>
@@ -24,16 +24,19 @@ function Profile() {
                 <h2>Mis playlists</h2>
                 <img src={profilePlaylistLine}/>
                 <button className='profileCreatePlaylist'>Crear Playlist</button>
+                
             </div>
 
             <div className='profileCreatedPlaylists'>
                 <ul className='profileCreatedPlaylistsList'>
                     <li>
+                    <Link to ='/profile/playlist'>
                         <div>
                             <img src={profilePlaylistImg}/>
                             <h3>Nombre De Prueba</h3>
                             <p>Descripcion De </p>
                         </div>
+                        </Link>
                     </li>
                 </ul>
             </div>

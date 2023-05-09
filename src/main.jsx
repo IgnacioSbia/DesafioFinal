@@ -7,6 +7,7 @@ import Home from './Components/Home/home.jsx'
 import Profile from './Components/Profile/Profile.jsx'
 import ConfigPage from './components/ConfigPage/ConfigPage.jsx'
 import SearchPage from './components/SearchPage/SearchPage.jsx'
+import PlaylistByUser from './components/PlaylistByUser/PlaylistByUser.jsx'
 
  
 const Router = createBrowserRouter ([
@@ -14,7 +15,8 @@ const Router = createBrowserRouter ([
   {path: "/Home", element: <Home/>},
   { path: "/Profile",element: <Profile/>}, 
   { path: "/search",element: <SearchPage/>}, 
-  {path: "/profileconfig", element: <ConfigPage/>}
+  {path: "/profile/config", element: <ConfigPage/>},
+  { path: "/profile/playlist",element: <PlaylistByUser/>}
  ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
