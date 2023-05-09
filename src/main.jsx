@@ -1,23 +1,22 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
-import "./index.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import ConfigPage from "./components/ConfigPage/ConfigPage.jsx";
-//Eliminar despues, es solo para resting
-import NavBar from "./components/NavigationBar/NavBar.jsx";
-import CreatePlaylist from "./components/CreatePlaylist/createPlaylist.jsx";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Home from './Components/Home/home.jsx'
+import Profile from './Components/Profile/Profile.jsx'
+import ConfigPage from './components/ConfigPage/ConfigPage.jsx'
+import SearchPage from './components/SearchPage/SearchPage.jsx'
 
-const Router = createBrowserRouter([
-  { path: "/", element: <App /> },
-  { path: "/profileconfig", element: <ConfigPage /> },
-  //eliminar navtest, es solo para testing
-  { path: "/navtest1", element: <NavBar /> },
-  { path: "/createPlaylist", element: <CreatePlaylist /> },
-  { path: "/navtest2", element: <NavBar /> },
-  { path: "/navtest3", element: <NavBar /> },
-  { path: "/navtest4", element: <NavBar /> },
-]);
+ 
+const Router = createBrowserRouter ([
+  { path: "/",element: <App/>},
+  {path: "/Home", element: <Home/>},
+  { path: "/Profile",element: <Profile/>}, 
+  { path: "/search",element: <SearchPage/>}, 
+  {path: "/profileconfig", element: <ConfigPage/>}
+ ])
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
