@@ -47,10 +47,11 @@
         left: 20px;
         right: auto;
         box-shadow: 0.2px 0.2px 0.2px 0.2px gray;
+        height: 120px;
     }
     .homeImg{
         border-radius: 0px 0px 0px 24px;
-        height: 95px;
+        height: 100px;
     }
     .homeMusicalCupidText{
         font-family: 'Rubik', sans-serif;
@@ -77,5 +78,6 @@
         left: 20px;
         right: auto;
         box-shadow: 0.2px 0.2px 0.2px 0.2px gray;
+        height: 120px;
     }
 }

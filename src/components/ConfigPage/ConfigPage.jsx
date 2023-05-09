@@ -2,13 +2,15 @@ import React from 'react'
 import './ConfigPage.css'
 import arrow from './Icons-Images/arrow.svg'
 import { Link } from 'react-router-dom'
+
+
 function ConfigPage() {
   return (
     <div className='configcontainer'>
         <div className='configtopgradient'>
         </div>
         <section className='configtop'>
-            <Link to='/'>
+            <Link to='/Profile'>
             <div className='configreturn'><img src={arrow}></img> </div>
             </Link>
             <div className='configheader'>Configuracion</div>
@@ -26,4 +28,4 @@ function ConfigPage() {
   )
 }
 
-export default ConfigPage
+export default ConfigPage;

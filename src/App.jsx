@@ -5,6 +5,7 @@ import Profile from './Components/Profile/Profile'
 import CheckIn from './components/CheckIn/CheckIn.jsx'
 import RecoverAccount from './components/RecoverAccount/RecoverAccount.jsx'
 import './App.css';
+import MainPage from './Components/MainPage/mainPage';
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <>
-
+      
     </>
   )
 }
