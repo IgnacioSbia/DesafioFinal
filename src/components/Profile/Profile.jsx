@@ -15,7 +15,7 @@ function Profile() {
                 <img id='profileUserImg' src={profileImg}/>
                 <h1>Maria Pérez</h1>
                 <p>@mara_pg</p>
-                <Link to={'/profile/config'}><button className='profileConfigButton'><img src={profileConfigImg}/></button></Link>
+                <Link to={'/Profile/Config'}><button className='profileConfigButton'><img src={profileConfigImg}/></button></Link>
             </div>
         </header>
         <main className='profileMain'>

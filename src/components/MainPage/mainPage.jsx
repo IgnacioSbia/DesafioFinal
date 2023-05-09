@@ -2,18 +2,25 @@ import Audn from "./img/audnSmall.svg";
 import "./mainPage.css";
 import iconApple from "./img/iconApple.svg";
 import iconGoogle from "./img/iconGoogle.svg";
+import { Link } from "react-router-dom";
 
 function MainPage() {
   return (
     <main className="mainPage">
-      <img className="loginBackground" src="" alt="" />
+      <div className="loginBackground"></div>
       <div className="logoName">
         <img className="logoAudn" src={Audn} alt="audn" />
         <h2 className="logoMusic">Música a medida.</h2>
       </div>
       <section className="btnSections">
         <div>
-          <button className="btnRegister">Registrarse Gratis</button>
+
+          <Link to={'/SignIn'}><button className="btnRegister">Registrarse Gratis</button></Link>
+
+          <Link to="/">
+            <button className="btnRegister">Registrarse Gratis</button>
+          </Link>
+
         </div>
         <div>
           <button className="btnOthers">
@@ -28,7 +35,12 @@ function MainPage() {
           </button>
         </div>
         <div className="divLogin">
-          <button className="linkLogin">Iniciar seción</button>
+
+          <Link to={'/LogIn'}><button className="linkLogin">Iniciar sesión</button></Link>
+
+          <Link to="">
+            <button className="btnLogin">Iniciar seción</button>
+          </Link>
         </div>
       </section>
     </main>

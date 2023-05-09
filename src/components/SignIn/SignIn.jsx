@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./SignIn.css";
 import leftArrow from "./Img/leftArrow.svg";
+import { Link } from "react-router-dom";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -13,17 +14,23 @@ function SignIn() {
 
   return (
     <div >
+
       <div className="formContainer">
         <section className="formAccountText">
           {" "}
-          <img src={leftArrow} className="leftArrow" />
+          <Link to={'/'}><img src={leftArrow} className="leftArrow" /></Link>
+
+      <div className="formContainerSignIn">
+        <section className="formAccountTextSignIn">  
+          <img src={leftArrow} className="leftArrowSignIn" />
+
           <div>
-            <h5>Crear cuenta</h5>
+            <h5 className="textCreateAccountSignIn">Crear Cuenta</h5>
           </div>
-        </section>{" "}
+        </section>
         <br />
         <div>
-          <h2>
+          <h2 className="textEmailSignIn">
             ¿Cuál es tu correo <br /> electrónico?
           </h2>
         </div>
@@ -31,16 +38,15 @@ function SignIn() {
       <form onSubmit={handleSubmit}>
         <div className="formSignIn">
           <label>
-            <br />
-            Correo electrónico: <br />
+            <div className="titleEmailSignIn">Correo electrónico: <br /> </div>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="inputGrayBorder"
+              className="inputBorderSignIn"
             />
           </label>
-          <p>Deberás poder confirmar luego.</p>
+          <p className="textConfirmationSignIn">Deberás poder confirmar luego.</p>
           <br />
           <button type="submit" className="buttonSignIn" disabled>
             Continuar

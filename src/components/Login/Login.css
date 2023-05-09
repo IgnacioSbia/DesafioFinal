@@ -6,96 +6,68 @@
   }
   
   @media (max-width: 368px) {
-    h5,
-    h2 {
+    .textSesionLogin {
       text-align: center;
       letter-spacing: 1px;
+      font-weight: bold;
+      font-size: 15px;
     }  
-  
-     p {
-          margin-bottom: 10em;
-          color: #838486;
-          opacity: 50%;
-          font-size: small;
-    }
-  
-    .formSignIn {
-          padding: 2em;
-    }
 
-    .formTerms {
-        font-size: 12px;
-      
-    }
-
-    .orangeText {
-        color:#FF8E0A;
-      
+    .textUserEmailLogin {
+        letter-spacing: 1px;
+        font-size: 17px;
     }
   
-    .formContainer {
+    .textRecPasswordLogin {
+          margin-top: 2.5em;
+          color: #0a0a0a;
+          text-align: center;
+          font-weight: bold;
+          letter-spacing: 1px;
+          
+    }
+  
+    .formContainerLogin {
       background: linear-gradient(
         360deg,
         rgba(253, 254, 255, 0) 25%,
         rgba(255, 141, 10, 0.288) 75%,
         rgba(255, 141, 10, 0.363) 100%
       );
+    }
+
+ 
+    .formTextLogin {
+      display: flex;
+      align-items: center;
       padding: 2em;
     }
   
-    .formAccountText {
-      display: flex;
-      align-items: center;
-    }
-  
-    .leftArrow {
+    .leftArrowLogin {
       width: 20px;
       height: 20px;
       margin-right: 5em;
     }
   
-    input {
-      width: 22em;
-      height: 3em;
-      margin-top: 1em;
-      margin-bottom: .5em;
-    }
-  
+
     .inputBorder {
       border: 2px solid #e4e6e8;
       border-radius: 10px 100px / 120px;
+      width: 22em;
+      height: 3.5em;
+      margin-top: 0px;
     }
-    
-    .inputCheck {
-    cursor: pointer;
-    background-color: #fff;
-    width: 25px;
-    height: 25px;
-    appearance: none;
   
-    padding: 0;
-    margin:0;
-    vertical-align: bottom;
-    position: relative;
-    top: 3px;
-    margin-right: 5px;
-    }
-
     .buttonLogin {
       border: 2px solid #ff8e0a;
       border-radius: 10px 100px / 120px;
       background-color: #ff8e0a;
       width: 22em;
-      height: 3em;
+      height: 3.5em;
       color: #fdfeff;
       letter-spacing: 1px;
+      margin-top: 7em;
     }
-
-
-    .buttonLogin:disabled {
-      background-color: #E4E6E8;
-      border: 2px solid #E4E6E8;
-  
-}
-}
+   
+  }
   
