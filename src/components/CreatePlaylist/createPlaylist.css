@@ -1,0 +1,93 @@
+    @media (max-width: 368px) {
+    .mainPlaylist {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "top" "input" "button";
+        justify-content: center;
+        align-content: center;
+    } 
+    .topGradient {
+        grid-area: top;
+        position: absolute;
+        width: 368px;
+        height: 25%;
+        background: linear-gradient(360deg, rgba(253, 254, 255, 0) 25%, rgba(255, 141, 10, 0.288) 75%, rgba(255, 141, 10, 0.363) 100%);;
+        background-size: 25%;
+        z-index: 0;
+    }
+    .navTitle {
+     display: flex;
+     justify-content: center;
+     color: #26262E;
+     position: relative;
+     z-index: 1;
+     top: 10%;
+     font-size: 16px;
+    } 
+    #imgArrow {
+        width: 20px;
+        height: 23px;
+        left: 20px;
+        position: absolute;
+    }
+    .title{
+        display: flex;
+        justify-content: center;
+        margin-top: 25%;
+        text-align: center;
+        font-size: 20px;
+        position: relative;
+    }
+    .sectionInput{
+        position: absolute;
+        top: 32%;
+        margin-left: 20px;
+        grid-area: input;
+    }
+    .labelPlaylist{
+        color: #26262E;
+        font-size: 24px;
+        line-height: 31px
+    }
+   #namePlaylist{
+    border:2px solid #E4E6E8;
+    border-radius: 0px 16px;
+    height: 48px;
+    width: 320px;
+    font-size: 20px;
+    text-align: start;
+   }
+   .btnContinue:disabled {
+    position: absolute;
+    background: #E4E6E8;
+    color: #FDFEFF;
+    font-size: 20px;
+    width: 320px;
+    height: 48px;
+    border-radius: 0px 16px;
+    border: none;
+   }
+   .btnContinue {
+    position: absolute;
+    background: #FF8E0A;
+    color: #FDFEFF;
+    font-size: 20px;
+    width: 320px;
+    height: 48px;
+    border-radius: 0px 16px;
+    border: none;
+   }
+   .btnContinue:focus{
+    border-color: #FF8E0A;
+   }
+   input:focus-visible{
+    outline-color: #FF8E0A;
+   }
+   .sectionBtn {
+    display: flex;
+    grid-area: button;
+    justify-content: center;
+   }
+}

@@ -1,10 +1,23 @@
+
+@media (max-width: 368px) {
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .mainPage {
-    width: 376px;
+
+    width: 368px;
     height: 791px;
+
+    width: 100vw;
+    height: 100vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 .logoName { 
     display: flex;
@@ -16,28 +29,20 @@
     position: absolute;
     width: 207.64px;
     height: 72px;
-    left: 80px;
     top: 176px;
 }
 .logoMusic {
     position: absolute;
     width: 196px;
     height: 31px;
-    left: 86px;
-    top: 271.63px;
-    
+    top: 265px;
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 400;
     font-size: 26px;
     line-height: 31px;
-    /* identical to box height */
-    
     text-align: center;
     letter-spacing: -0.794434px;
-    
-    /* Medios Tonos/Gris 5 */
-    
     color: #26262E;
 }
 .btnSections { 
@@ -58,10 +63,13 @@
     align-items: center;
     padding: 12px 16px;
     gap: 12px;
-    width: 320px;
+    width: 315px;
     height: 48px;
     background: #FF8E0A;
     border-radius: 0px 16px;
+    cursor: pointer;
+    font-size: 17px;
+    border: none;
 }
 
  .btnOthers {
@@ -71,13 +79,16 @@
     align-items: center;
     padding: 12px 16px;
     gap: 12px;
-    width: 320px;
+    width: 315px;
     height: 48px; 
     border: 2px solid black;
     border-radius: 0px 16px;
+    cursor: pointer;
+    font-size: 17px;
+
 } 
 .btnRegister:hover {
-    border-color: #FF8E0A;
+    border-color: none;
  }
  
 .btnOthers:hover {
@@ -85,27 +96,53 @@
 }
 
 .btnLogin {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 12px;
     width: 320px;
-    height: 48px;
+    height: 48px; 
+    background: none;
+    border: none;
+    font-size: 17px;
+    color: #26262E; 
+    cursor: pointer;
+}
+.linkLogin{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 12px;
+    width: 315px;
+    height: 48px; 
+    border: none;
+    font-size: 18px;
+    background: none;
 }
 .btnLogin:hover {
     border-color: none;
  }
  
 .divLogin {
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 .loginBackground {
-    display: flex;
-    
+    display: flex;    
     justify-content: center;
     align-content: center;
     position: absolute;
-    width: 376px;
+    width: 368px;
     height: 792px;
     top: 0px;
     background: url('./img/log-in-background.png');
     mix-blend-mode: multiply;
     opacity: 0.5;
 }
-
+a:-webkit-any-link { 
+    text-decoration: none;
+}
+}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./SignIn.css";
 import leftArrow from "./Img/leftArrow.svg";
+import { Link } from "react-router-dom";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -21,9 +22,16 @@ function SignIn() {
 
   return (
     <div >
+
+      <div className="formContainer">
+        <section className="formAccountText">
+          {" "}
+          <Link to={'/'}><img src={leftArrow} className="leftArrow" /></Link>
+
       <div className="formContainerSignIn">
         <section className="formAccountTextSignIn">  
           <img src={leftArrow} className="leftArrowSignIn" />
+
           <div>
             <h5 className="textCreateAccountSignIn">Crear Cuenta</h5>
           </div>
