@@ -5,8 +5,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./Components/Home/home.jsx";
 import Profile from "./Components/Profile/Profile.jsx";
-
-import MainPage from "./Components/MainPage/mainPage.jsx";
+import MainPage from "./components/MainPage/mainPage.jsx";
 import SignIn from "./components/SignIn/SignIn.jsx";
 import Login from "./components/Login/Login.jsx";
 import CheckIn from "./components/CheckIn/CheckIn.jsx";
