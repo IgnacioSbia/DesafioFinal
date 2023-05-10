@@ -68,8 +68,11 @@
     width: 23em;
     height: 3.5em;
     margin-bottom: .5em;
- 
   }
+
+  .inputBorderSignIn:focus-visible{
+    outline-color : #FF8E0A
+    }
 
   .buttonSignIn {
     border: 2px solid #ff8e0a;
