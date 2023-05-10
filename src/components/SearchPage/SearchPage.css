@@ -38,6 +38,9 @@
 .searchinput:focus {
     background-color: transparent;
 }
+.searchinput:enabled {
+    background-color: transparent;
+}
 .searchclear {
     height: 50%;
     width: auto;
@@ -46,4 +49,19 @@
 }
 .searchflecha, .searchlupa {
     margin-right: 10%;
+}
+
+.searchresultdiv {
+    width: 100%;
+    display: flex;
+    margin: 2% 2% 2% 2%;
+}
+.searchresulttext {
+    width: 100%;
+}
+.searchtextmain, .searchtextsub {
+    margin-left: 6%;
+}
+.searchtextsub {
+    color: #838486;
 }
