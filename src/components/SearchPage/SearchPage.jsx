@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import flecha from './Icons-Images/flecha.svg'
 import x from './Icons-Images/x.svg'
 import lupa from './Icons-Images/lupa.svg'
+import placeholder from './Icons-Images/placeholder.svg'
 import './SearchPage.css'
 import NavBar from '../NavigationBar/NavBar.jsx';
 
@@ -9,11 +10,18 @@ function SearchPage() {
 
   const [searchValue, setSearchValue] = useState('')
   const [songData, setSongData] = useState([])
+  const [filteredSongData, setFilteredSongData] = useState(songData)
   const searchInputSelector = document.getElementById('searchbar')
 
   const onChangeSearch = (event) => {
-    const value = event.target.value;
+      const value = event.target.value;
     setSearchValue(value)
+    let newfilteredSongData = [...songData]
+    newfilteredSongData = newfilteredSongData.filter((item) => {
+      return item.song_name.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+
+  })
+  setFilteredSongData(newfilteredSongData)
   }
   const onClickReset = () => {
     setSearchValue('');
@@ -70,9 +78,14 @@ function SearchPage() {
         </div>
         { searchValue !== '' }
         { searchValue === '' && <NavBar></NavBar>}
-        {songData.map((item) => (
-          <div key={item.id_song}>
-            <p>{item.song_name}</p>
+
+        { searchValue !== '' && filteredSongData.map((item) => (
+          <div className='searchresultdiv' key={item.id_song}>
+            <img src={placeholder} className='searchresultpicture'></img>
+            <div className='searchresulttext'>
+            <p className='searchtextmain'>{item.song_name}</p>
+            <p className='searchtextsub'>Cancion | {item.artist_name}</p>
+            </div>
           </div>
         ))}
         
