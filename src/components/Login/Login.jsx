@@ -5,8 +5,6 @@ import leftArrow from "../SignIn/Img/leftArrow.svg";
 import checkbox from "../SignIn/Img/checkbox.svg";
 import checkboxOk from "../SignIn/Img/checkboxOk.svg";
 import { Link } from "react-router-dom";
-import leftArrow from "./../SignIn/Img/leftArrow.svg";
-
 
 function Login() {
   const [userName, setUserName] = useState("");
@@ -81,7 +79,7 @@ function Login() {
            </div>
           <br />
 
-          <button type="submit" className="buttonLogin" disabled>
+          <button type="submit" className="buttonLogin" disabled></button>
 
           <button type="submit" className="buttonLogin">
 
@@ -90,6 +88,7 @@ function Login() {
           <div className="textRecPasswordLogin">¿Olvidaste tu contraseña? </div>
         </div>
       </form>
+    </div>
     </div>
   );
 }
