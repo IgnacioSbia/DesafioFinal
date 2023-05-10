@@ -1,21 +1,33 @@
 import React, { useState } from "react";
 import "./SignIn.css";
 import leftArrow from "./Img/leftArrow.svg";
+import { Link } from "react-router-dom";
 
 function SignIn() {
   const [email, setEmail] = useState("");
+  const [validEmail, setValidEmail] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Correo electrónico: ${email}`);
     // Aca va código para enviar el correo electrónico al servidor
+  };
+
+  const handleEmailChange = (event) => {
+    const emailValue = event.target.value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setEmail(emailValue);
+    let isValid = emailRegex.test(emailValue);
+    setValidEmail(isValid);
   };
 
   return (
     <div >
+
+      
       <div className="formContainerSignIn">
         <section className="formAccountTextSignIn">  
-          <img src={leftArrow} className="leftArrowSignIn" />
+        <Link to={'/'}><img src={leftArrow} className="leftArrowSignIn" /></Link>
+
           <div>
             <h5 className="textCreateAccountSignIn">Crear Cuenta</h5>
           </div>
@@ -34,13 +46,13 @@ function SignIn() {
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmailChange}
               className="inputBorderSignIn"
-            />
+              />
           </label>
           <p className="textConfirmationSignIn">Deberás poder confirmar luego.</p>
           <br />
-          <button type="submit" className="buttonSignIn" disabled>
+          <button type="submit" className="buttonSignIn" disabled={validEmail ? false : true } >
             Continuar
           </button>
         </div>

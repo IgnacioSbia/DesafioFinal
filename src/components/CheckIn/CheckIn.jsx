@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import { useRef, useEffect } from 'react';
 import "./CheckIn.css";
 import leftArrow from "../SignIn/Img/leftArrow.svg";
 import checkbox from "../SignIn/Img/checkbox.svg";
 import checkboxOk from "../SignIn/Img/checkboxOk.svg";
+import { Link } from "react-router-dom";
 
 function CheckIn() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const [validName, setValidName] = useState(false);
+  const [validPassword, setValidPassword] = useState(false);
+  const passwordMessageRef = useRef(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,6 +24,44 @@ function CheckIn() {
 
   const handleCheckboxChange = (event) => {
     setIsChecked(!isChecked);
+  };
+
+  const handleNameChange = (event) => {
+    const nameValue = event.target.value;
+    setName(nameValue);
+    // Aca va la validacion de la base de datos de si el nombre de usuario esta disponible
+    let isValid = nameValue.length > 3;
+    setValidName(isValid);
+
+    let classList = event.target.classList;
+    if (isValid) {
+      classList.add("validColor");
+    } else {
+      classList.remove("validColor");
+    }
+  };
+
+  const handlePasswordChange = (event) => {
+    const passwordValue = event.target.value;
+    setPassword(passwordValue);
+    // Aca va la validacion de la base de datos de si el nombre de usuario esta disponible
+    let isValid = passwordValue.length >= 8;
+    setValidPassword(isValid);
+
+    let classList = event.target.classList;
+    console.log(isValid);
+    let messageClassList = passwordMessageRef.current.classList;
+    if (isValid) {
+      classList.add("validColor");
+      classList.remove('errorColor');
+      messageClassList.add('validColorText');
+      messageClassList.remove('errorColorText');
+    } else {
+      classList.add("errorColor");
+      classList.remove('validColor');
+      messageClassList.add('errorColorText');
+      messageClassList.remove('validColorText');
+    }
   };
 
   return (
@@ -46,43 +89,47 @@ function CheckIn() {
             <input
               type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={handleNameChange}
               className="inputBorderCheckIn"
             />
             <div className="textUserCheckIn">
-              El nombre de usuario está disponible
+              <span hidden={validName ? false : true}>
+                {" "}
+                El nombre de usuario está disponible{" "}
+              </span>
             </div>
           </label>
           <label>
-            <div className="titlePasswCheckIn">Contraseña: <br /> </div>
+            <div className="titlePasswCheckIn">
+              Contraseña: <br />{" "}
+            </div>
             <input
-              type="text"
+              type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handlePasswordChange}
               className="inputBorderCheckIn"
             />
           </label>
-          <p className="textPasswCheckIn">
+          <p className="textPasswCheckIn"  ref={passwordMessageRef}>
             Deberá contener al menos 8 caracteres.
           </p>
           <br />
           <div className="buttonSubmitCheckIn">
-          <div className="formTermsCheckIn">
-            <img
-              src={isChecked ? checkboxOk : checkbox}
-              className="inputCheckIn"
-              onClick={handleCheckboxChange}
-            />
-             
-            He leido y acepto los{" "}
-            <span className="orangeTextCheckIn">Terminos</span> y{" "}
-            <span className="orangeTextCheckIn">Condiciones.</span>
+            <div className="formTermsCheckIn">
+              <img
+                src={isChecked ? checkboxOk : checkbox}
+                className="inputCheckIn"
+                onClick={handleCheckboxChange}
+              />
+              He leido y acepto los{" "}
+              <span className="orangeTextCheckIn">Terminos</span> y{" "}
+              <span className="orangeTextCheckIn">Condiciones.</span>
+            </div>
+            <br />
+            <button type="submit" className="buttonCheckIn" disabled={validPassword && validName && isChecked ? false : true}>
+              Continuar
+            </button>{" "}
           </div>
-          <br />
-        
-          <button type="submit" className="buttonCheckIn" disabled>
-            Continuar
-          </button> </div>
         </div>
       </form>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import './RecoverAccount.css'
+import "./RecoverAccount.css";
 import leftArrow from "./../SignIn/Img/leftArrow.svg";
+import { Link } from "react-router-dom";
 
 function RecoverAccount() {
   const [userName, setUserName] = useState("");
@@ -16,14 +17,16 @@ function RecoverAccount() {
     <div>
       <div className="formContainerRecAccount">
         <section className="formTextAccount">
-          <img src={leftArrow} className="leftArrowRecAccount" />
+        <Link to={'/'}> <img src={leftArrow} className="leftArrowRecAccount" /> </Link>
           <h5 className="TitleRecAccount">Recuperar Cuenta</h5>
         </section>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="formRecAccount">
           <label>
-            <h3 className="textUserEmailRecAccount">Nombre de Usuario o E-mail:</h3>
+            <h3 className="textUserEmailRecAccount">
+              Nombre de Usuario o E-mail:
+            </h3>
             <br />
             <input
               type="text"
@@ -32,11 +35,15 @@ function RecoverAccount() {
               className="inputBorderRecAccount"
             />
           </label>
-          <p className="textRecAccount">Deberás poder ingresar al e-mail de la cuenta <br/> para poder recuperarla.</p>
+          <p className="textRecAccount">
+            Deberás poder ingresar al e-mail de la cuenta <br /> para poder
+            recuperarla.
+          </p>
           <div>
-          <button type="submit" className="buttonRecAccount">
-            Continuar
-          </button> </div>
+            <button type="submit" className="buttonRecAccount">
+              Continuar
+            </button>{" "}
+          </div>
         </div>
       </form>
     </div>

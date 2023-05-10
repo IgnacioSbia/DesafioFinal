@@ -1,0 +1,64 @@
+@media(max-width:368px){
+.pbutopgradient {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    /* background: linear-gradient(0deg, rgba(253, 254, 255, 0) 25%, rgba(255, 142, 10, 0.534586) 75%, rgba(255, 142, 10, 0.8) 100%);; */
+    background: linear-gradient(360deg, rgba(253, 254, 255, 0) 25%, rgba(255, 141, 10, 0.288) 75%, rgba(255, 141, 10, 0.363) 100%);;
+    z-index: -1;
+}
+
+.pbucontainer {
+    width: 100%;
+    height: 100%;
+}
+.pbuheader {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 16px;
+    padding-top: 10%;
+}
+.pbucreatedtop {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15%;
+    margin: 0 5% 0 5%;
+    font-size: 20px;
+}
+.pbuinfouser {
+    display: flex;
+    margin: 0 5% 0 5%;
+    padding-top: 4%;
+}
+.pbuuser {
+    padding-left: 5%;
+}
+.pbuprofilepic {
+    width: 15%;
+}
+.pbudate {
+    color: #838486;
+    font-size: 15px;
+}
+.pbuadd {
+        width: 100%;
+        height: 50px;
+        color: #ffffff;
+        font-size: 20px;
+        border: 0;
+        border-radius: 0% 25px 0px;
+        background-color: #FF8E0A;
+}
+.pbuadddiv {
+    padding-top: 10%;
+}
+.pbuaddsongs {
+    padding-top: 10%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    justify-content: center;
+    text-align: center;
+}
+}
