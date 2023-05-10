@@ -14,7 +14,7 @@ function MainPage() {
       </div>
       <section className="btnSections">
         <div>
-          <Link to="/">
+          <Link to="/SignIn">
             <button className="btnRegister">Registrarse Gratis</button>
           </Link>
         </div>
@@ -31,7 +31,7 @@ function MainPage() {
           </button>
         </div>
         <div className="divLogin">
-          <Link to="">
+          <Link to="/Login">
             <button className="btnLogin">Iniciar seción</button>
           </Link>
         </div>
