@@ -18,12 +18,12 @@ function NavBar() {
     //Hay que cambiar las rutas (/navtestX) a su correcta pagina
   // Cambiar icono home
   let navIconHome;
-  if (location.pathname === '/navtest1') {
+  if (location.pathname === '/Home') {
     navIconHome = homeIconActive;
   } else navIconHome = homeIcon
   // Cambiar icono search
   let navIconSearch;
-  if (location.pathname === '/navtest2') {
+  if (location.pathname === '/search') {
     navIconSearch = searchIconActive;
   } else navIconSearch = searchIcon
   //Cambiar icono profile
@@ -41,16 +41,16 @@ function NavBar() {
   //Hay que cambiar las rutas (/navtestX) a su correcta pagina
   return (
     <div className='navMainDiv'>
-      <Link to='/navtest1'>
-      <div className={`navHome ${location.pathname !== '/navtest1' ? 'navInactive' : ''}`}><img src={navIconHome}></img>Inicio</div>
+      <Link to='/Home'>
+      <div className={`navHome ${location.pathname !== '/Home' ? 'navInactive' : ''}`}><img src={navIconHome}></img>Inicio</div>
       </Link>
-      <Link to='/navtest2'>
-      <div className={`navSearch ${location.pathname !== '/navtest2' ? 'navInactive' : ''}`}><img  src={navIconSearch} ></img>Buscador</div>
+      <Link to='/search'>
+      <div className={`navSearch ${location.pathname !== '/search' ? 'navInactive' : ''}`}><img  src={navIconSearch} ></img>Buscador</div>
       </Link>
-      <Link to='/navtest3'>
-      <div className={`navProfile ${location.pathname !== '/navtest3' ? 'navInactive' : ''}`}><img  src={navIconProfile} ></img>Perfil</div>
+      <Link to='/Profile'>
+      <div className={`navProfile ${location.pathname !== '/Profile' ? 'navInactive' : ''}`}><img  src={navIconProfile} ></img>Perfil</div>
       </Link>
-      <Link to='/navtest4'>
+      <Link to='/navvtest4'>
       <div className={`navFriends ${location.pathname !== '/navtest4' ? 'navInactive' : ''}`}><img src={friendsIcon} ></img>Amigos</div>
       </Link>
     </div>
