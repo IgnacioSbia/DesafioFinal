@@ -23,14 +23,10 @@ function SignIn() {
   return (
     <div >
 
-      <div className="formContainer">
-        <section className="formAccountText">
-          {" "}
-          <Link to={'/'}><img src={leftArrow} className="leftArrow" /></Link>
-
+      
       <div className="formContainerSignIn">
         <section className="formAccountTextSignIn">  
-          <img src={leftArrow} className="leftArrowSignIn" />
+        <Link to={'/'}><img src={leftArrow} className="leftArrowSignIn" /></Link>
 
           <div>
             <h5 className="textCreateAccountSignIn">Crear Cuenta</h5>

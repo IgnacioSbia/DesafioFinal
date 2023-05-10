@@ -19,6 +19,7 @@
     }
   
     .textRecPasswordLogin {
+      appearance: none;
           margin-top: 2.5em;
           color: #0a0a0a;
           text-align: center;
@@ -36,7 +37,8 @@
       );
     }
 
- 
+    
+
     .formTextLogin {
       display: flex;
       align-items: center;
@@ -49,7 +51,6 @@
       margin-right: 5em;
     }
   
-
     .inputBorder {
       border: 2px solid #e4e6e8;
       border-radius: 10px 100px / 120px;
@@ -57,6 +58,10 @@
       height: 3.5em;
       margin-top: 0px;
     }
+
+    .inputBorder:focus-visible{
+      outline-color : #FF8E0A
+      }
   
     .buttonLogin {
       border: 2px solid #ff8e0a;
@@ -68,6 +73,23 @@
       letter-spacing: 1px;
       margin-top: 7em;
     }
+
+    
+
+    .buttonLogin:disabled {
+      background-color: #e4e6e8;
+      border: 2px solid #e4e6e8;
+    }
+
+    .formLogin
+    {
+      padding: 2em;
+    }
+
+
+
+
+    
    
   }
   
