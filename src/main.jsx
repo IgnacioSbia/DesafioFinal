@@ -5,13 +5,13 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './Components/Home/home.jsx'
 import Profile from './Components/Profile/Profile.jsx'
-
 import MainPage from './Components/MainPage/mainPage.jsx'
 import SignIn from './components/SignIn/SignIn.jsx'
 import Login from './components/Login/Login.jsx'
 import PlaylistByCupid from './Components/PlaylistByCupid/PlaylistByCupid.jsx'
 import ConfigPage from './Components/ConfigPage/ConfigPage.jsx'
 import SearchPage from './components/SearchPage/SearchPage.jsx'
+import AddSongToPlaylist from './Components/AddSongToPlaylist/AddSongToPlaylist.jsx'
 
 
  
@@ -22,7 +22,8 @@ const Router = createBrowserRouter ([
   {path: "/Home", element: <Home/>},
   {path: "/Home/MusicalCupid", element: <PlaylistByCupid/>},
   { path: "/Profile",element: <Profile/>}, 
-  {path: "/Profile/Config", element: <ConfigPage/>}
+  {path: "/Profile/Playlist/Addsongs", element:<AddSongToPlaylist/>},
+  {path: "/Profile/Config", element: <ConfigPage/>},
   { path: "/search",element: <SearchPage/>}, 
  ])
 

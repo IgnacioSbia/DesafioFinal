@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
 
-import leftArrow from "../SignIn/Img/leftArrow.svg";
 import checkbox from "../SignIn/Img/checkbox.svg";
 import checkboxOk from "../SignIn/Img/checkboxOk.svg";
 import { Link } from "react-router-dom";
@@ -19,7 +18,7 @@ function Login() {
   };
 
   return (
-    <div>
+     
 
       <div className="formContainer">
         <section className="formAccountText">
@@ -82,9 +81,6 @@ function Login() {
           <br />
 
           <button type="submit" className="buttonLogin" disabled>
-
-          <button type="submit" className="buttonLogin">
-
             Iniciar Sesión
           </button>
           <div className="textRecPasswordLogin">¿Olvidaste tu contraseña? </div>

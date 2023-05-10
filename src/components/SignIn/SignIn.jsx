@@ -19,7 +19,8 @@ function SignIn() {
         <section className="formAccountText">
           {" "}
           <Link to={'/'}><img src={leftArrow} className="leftArrow" /></Link>
-
+        </section>
+      </div>
       <div className="formContainerSignIn">
         <section className="formAccountTextSignIn">  
           <img src={leftArrow} className="leftArrowSignIn" />
