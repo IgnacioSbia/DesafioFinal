@@ -83,6 +83,10 @@
     margin-bottom: 0.5em;
   }
 
+  .inputBorderCheckIn:focus-visible{
+    outline-color : #FF8E0A
+    }
+
   .inputCheckIn {
     cursor: pointer;
     background-color: #fff;

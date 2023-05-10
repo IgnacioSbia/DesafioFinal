@@ -66,7 +66,7 @@ function Login() {
               type="text"
               value={userName}
               onChange={handleDataNameChange}
-              className="inputBorder"
+              className="inputBorderLogin"
             />
           </label>
           <label>
@@ -78,16 +78,11 @@ function Login() {
               type={showPassword ? "text" : "password"}
               value={password}
               onChange={handleDataPasswordChange}
-              className="inputBorder"
+              className="inputBorderLogin"
             />
           </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={showPassword}
-              onChange={toggleShowPassword}
-            />
-          </label>
+          
+         
           <button
             type="submit"
             className="buttonLogin"
@@ -105,8 +100,17 @@ function Login() {
         </div>
       </form>
     </div>
-    </div>
+   
   );
 }
 
 export default Login;
+//Falta ver tema icono input de mostrar/ocultar, ese es el codigo, pero no consegui posicionarlo 
+
+/* <label>
+<input
+  type="checkbox"
+  checked={showPassword}
+  onChange={toggleShowPassword}
+/>
+</label> */

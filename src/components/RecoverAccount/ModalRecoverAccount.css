@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-family: "Rubik", sans-serif;
+}
+
+@media (max-width: 368px) {
+  .ModalContainerRecAccount {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+    width: 95%;
+    height: 65%;
+    background-color: white;
+    border: 1px solid #e4e6e8;
+    border-radius: 15px;
+    padding: 2.7em;
+  }
+
+  .textOne,
+  .textTwo {
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 80%;
+    letter-spacing: 1.5px;
+    text-align: center;
+  }
+
+  .iconModalRecoverAccount {
+    text-align: center;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+
+  .iconModalImg {
+    width: 3em;
+    height: 3em;
+  }
+
+  .btnModalRecoverAccount {
+    border: 2px solid #080811;
+    border-radius: 10px 100px / 120px;
+    background-color: #080811;
+    width: 17em;
+    height: 3.5em;
+    color: #fdfeff;
+    letter-spacing: 2.5px;
+    margin-top: 1.8em;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 90%;
+  }
+
+  .btnContainerModal {
+    margin-left: -1.4em;
+  }
+}
