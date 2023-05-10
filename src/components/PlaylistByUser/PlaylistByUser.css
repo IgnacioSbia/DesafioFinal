@@ -1,4 +1,4 @@
-
+@media(max-width:368px){
 .pbutopgradient {
     position: absolute;
     width: 100%;
@@ -60,4 +60,5 @@
     grid-template-rows: auto;
     justify-content: center;
     text-align: center;
+}
 }
