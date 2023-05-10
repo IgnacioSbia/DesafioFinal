@@ -45,7 +45,6 @@ function Login() {
   };
 
   return (
-
     <div>
       <div className="formContainerLogin">
         <section className="formTextLogin">
@@ -60,8 +59,8 @@ function Login() {
         <div className="formLogin">
           <label>
             <h3 className="textUserEmailLogin">Nombre de Usuario o E-mail:</h3>
-          
-           <br />
+
+            <br />
             <input
               type="text"
               value={userName}
@@ -104,7 +103,6 @@ function Login() {
           </div>
         </div>
       </form>
-    </div>
     </div>
   );
 }
