@@ -4,6 +4,7 @@ import "./CheckIn.css";
 import leftArrow from "../SignIn/Img/leftArrow.svg";
 import checkbox from "../SignIn/Img/checkbox.svg";
 import checkboxOk from "../SignIn/Img/checkboxOk.svg";
+import { Link } from "react-router-dom";
 
 function CheckIn() {
   const [name, setName] = useState("");
