@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import flecha from './Icons-Images/flecha.svg'
 import x from './Icons-Images/x.svg'
 import lupa from './Icons-Images/lupa.svg'
@@ -8,6 +8,7 @@ import NavBar from '../NavigationBar/NavBar.jsx';
 function SearchPage() {
 
   const [searchValue, setSearchValue] = useState('')
+  const [songData, setSongData] = useState([])
   const searchInputSelector = document.getElementById('searchbar')
 
   const onChangeSearch = (event) => {
@@ -19,7 +20,31 @@ function SearchPage() {
     searchInputSelector.value = '';
     return
   }
+
+  //conseguir info de la API
+
   
+  useEffect(() => {
+    const cancionesGet = async () => {
+      var requestOptions = {
+        method: "GET"
+      };
+      try {
+        const response = await fetch(
+          "http://localhost:8000/api/songartist",
+          requestOptions
+        );
+        if (response.ok) {
+          const respuesta = await response.json();
+          setSongData(respuesta.SongsArtists)
+        }
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+    cancionesGet();
+  }, []);
+  //
   
   return (
     <div className='searchcontainer'>
@@ -43,7 +68,14 @@ function SearchPage() {
             className='searchclear'
             onClick={onClickReset}><img src={x}></img></button>}
         </div>
+        { searchValue !== '' }
         { searchValue === '' && <NavBar></NavBar>}
+        {songData.map((item) => (
+          <div key={item.id_song}>
+            <p>{item.song_name}</p>
+          </div>
+        ))}
+        
     </div>
   )
 }
