@@ -83,7 +83,7 @@
     .playlistCupidTimeWheel{
         position: absolute;
         left: 250px;
-        bottom: 130px;   
+        bottom: 15px;   
     }
    .playlistByCupidAlphaIcon{
     background: none;
@@ -148,7 +148,7 @@
     overflow-x: hidden;
     overflow-y: scroll;
     width: 300px;
-    height: 100px;
+    height: 110px;
    
 }
    .playlistByCupidListMoreInfoButton{
