@@ -65,3 +65,21 @@
 .searchtextsub {
     color: #838486;
 }
+
+.search20wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.searchtop20 {
+    max-width: 150px;
+    text-align: center;
+}
+
+.search20headertext {
+    padding-top: 3%;
+    padding-bottom: 8px;
+    padding-left: 10%;
+    width: 100%;
+}
