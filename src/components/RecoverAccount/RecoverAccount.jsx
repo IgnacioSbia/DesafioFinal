@@ -50,7 +50,7 @@ function RecoverAccount() {
           </div>
         </div>
       </form>
-      {showModal && <ModalRecoverAccount onClose={() => setShowModal(false)} />}
+      {showModal && <ModalRecoverAccount userName={userName} onClose={() => setShowModal(false)} />}
     </div>
   );
 }

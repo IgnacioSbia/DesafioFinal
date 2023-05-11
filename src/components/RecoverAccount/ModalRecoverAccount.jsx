@@ -37,3 +37,4 @@ function ModalRecoverAccount(props) {
 }
 
 export default ModalRecoverAccount;
+// ver tema de email
