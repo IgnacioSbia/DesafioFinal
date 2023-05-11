@@ -81,7 +81,7 @@ function Login() {
             />
           </label>
           
-         
+          <Link to="/home">
           <button
             type="submit"
             className="buttonLogin"
@@ -89,13 +89,15 @@ function Login() {
           >
             Iniciar Sesión
           </button>
+          </Link>
 
+          <Link to="/RecoverAccount">
           <div
             className="textRecPasswordLogin"
             onClick={handleForgotPasswordClick}
           >
             ¿Olvidaste tu contraseña?{" "}
-          </div>
+          </div>  </Link>
         </div>
       </form>
     </div>

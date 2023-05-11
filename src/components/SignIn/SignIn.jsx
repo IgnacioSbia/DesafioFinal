@@ -52,9 +52,10 @@ function SignIn() {
           </label>
           <p className="textConfirmationSignIn">Deberás poder confirmar luego.</p>
           <br />
+          <Link to="/CheckIn">
           <button type="submit" className="buttonSignIn" disabled={validEmail ? false : true } >
             Continuar
-          </button>
+          </button> </Link>
         </div>
       </form>
     </div>

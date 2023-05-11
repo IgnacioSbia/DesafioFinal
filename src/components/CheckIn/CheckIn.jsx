@@ -126,9 +126,10 @@ function CheckIn() {
               <span className="orangeTextCheckIn">Condiciones.</span>
             </div>
             <br />
+            <Link to="/Login">
             <button type="submit" className="buttonCheckIn" disabled={validPassword && validName && isChecked ? false : true}>
               Continuar
-            </button>{" "}
+            </button>{" "} </Link>
           </div>
         </div>
       </form>

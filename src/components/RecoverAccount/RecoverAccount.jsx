@@ -10,7 +10,6 @@ function RecoverAccount() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     // Aca va código para enviar el correo electrónico al servidor
     setShowModal(true);
   };
@@ -50,7 +49,7 @@ function RecoverAccount() {
           </div>
         </div>
       </form>
-      {showModal && <ModalRecoverAccount onClose={() => setShowModal(false)} />}
+      {showModal && <ModalRecoverAccount userName={userName} onClose={() => setShowModal(false)} />}
     </div>
   );
 }

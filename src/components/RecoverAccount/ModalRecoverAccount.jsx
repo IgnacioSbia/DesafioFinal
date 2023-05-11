@@ -9,8 +9,8 @@ function ModalRecoverAccount(props) {
         <div className="ModalContainerRecAccount">
           <p className="textOne">
             {" "}
-            Te enviamos mensaje a <br />
-            mara.perez@gmail.com con un link <br />
+            Te enviamos un mensaje a <br />
+            tu e-mail con un link <br />
             verificador.
           </p>
           <br />
@@ -37,3 +37,4 @@ function ModalRecoverAccount(props) {
 }
 
 export default ModalRecoverAccount;
+// ver tema de email
