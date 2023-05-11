@@ -37,8 +37,6 @@
       );
     }
 
-    
-
     .formTextLogin {
       display: flex;
       align-items: center;
@@ -51,7 +49,7 @@
       margin-right: 5em;
     }
   
-    .inputBorder {
+    .inputBorderLogin {
       border: 2px solid #e4e6e8;
       border-radius: 10px 100px / 120px;
       width: 22em;
@@ -59,7 +57,7 @@
       margin-top: 0px;
     }
 
-    .inputBorder:focus-visible{
+    .inputBorderLogin:focus-visible{
       outline-color : #FF8E0A
       }
   
@@ -86,10 +84,7 @@
       padding: 2em;
     }
 
-
-
-
     
-   
+
   }
   
