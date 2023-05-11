@@ -10,7 +10,6 @@ function RecoverAccount() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     // Aca va código para enviar el correo electrónico al servidor
     setShowModal(true);
   };
