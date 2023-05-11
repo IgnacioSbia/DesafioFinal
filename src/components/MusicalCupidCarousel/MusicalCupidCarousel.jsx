@@ -12,11 +12,15 @@ import MusicalCupidCarousel4thItem from './Images/MusicalCupidCarousel4thItem.sv
 import MusicalCupidCarousel5thItem from './Images/MusicalCupidCarousel5thItem.svg';
 import MusicalCupidCarousel6thItem from './Images/MusicalCupidCarousel6thitem.svg';
 import { Link } from 'react-router-dom';
+import MusicalCupidCarouselModal from './MusicalCupidCarouselModal/MusicalCupidCarouselModal';
 
 function MusicalCupidCarousel() {
 
     const [activeIndex, setActiveIndex] = useState(0);
     const [songSelected, setSongSelected] = useState([])
+    const [showModal, setShowModal] = useState(false);
+    
+
     const items = [
         {
              artist: "Neck Deep",
@@ -61,12 +65,18 @@ function MusicalCupidCarousel() {
         console.log(songSelected)
       }
       
-    }
+    };
+    
+  const handleLikeOrDislike = (event) => {
+    event.preventDefault();
+
+    setShowModal(true);
+  };
 
   return (
     <>
         <header className='MusicalCupidHeader'>
-            <button className='MusicalCupidGoHome'><img src={arrowGoHome}/></button>
+            <Link to={'/Home'}><button className='MusicalCupidGoHome'><img src={arrowGoHome}/></button></Link>
       
             <h2 className='MusicalCupidCarouselTitle'>Cupido Musical</h2>
            
@@ -81,12 +91,13 @@ function MusicalCupidCarousel() {
           return <MusicalCupidCarouselItemsShowOff item={item} width={"100%"} />;
         })}
       </div>
-
+     
       <div className="carousel-buttons">
         <button
           className="button-arrowY"
-          onClick={ () => {
+          onClick={ (event) => {
             selectLikedSong(),
+            handleLikeOrDislike(event),
             updateIndex(activeIndex + 1);
           }}
         >
@@ -95,7 +106,8 @@ function MusicalCupidCarousel() {
         
         <button
           className="button-arrowX"
-          onClick={() => {
+          onClick={(event) => {
+            handleLikeOrDislike(event),
             updateIndex(activeIndex + 1);
           }}
         >
@@ -103,21 +115,22 @@ function MusicalCupidCarousel() {
         </button>
       </div>
     </div>
+    
     <p className='MusicalCupidCupidMatches'>Matches actuales: </p>
     <div className='MusicalCupidSongsLiked'>
      { songSelected.map((song)=>{
         console.log(song)
         return <MusicalCupidCarouselSelected song={song}/>
      })
+     
       
      }
-    <div>
-
-    </div>
+    {showModal && songSelected.length == 1  && <MusicalCupidCarouselModal onClose={() => setShowModal(false)}/>} 
     </div>
     <div className='MusicalCupidCreatePlaylist'>
         <Link to={'/Home/PlaylistByMusicalCupid'}><button disabled={songSelected.length >= 2 ? false : true} className='MusicalCupidCreatePlaylistButton'>Crear Playlist</button></Link>
     </div>
+    
     </>
   )
 }
