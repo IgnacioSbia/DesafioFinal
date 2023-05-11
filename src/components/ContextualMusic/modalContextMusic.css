@@ -1,0 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  @media (max-width: 368px) {
+    
+    .ModalContext {
+      position: absolute;
+      top: 64%;
+      left: 50%;
+      transform: translate(-50%, -65%);
+      width: 95%;
+      height: 95%;
+      background-color: white;
+      border: 1px solid #e4e6e8;
+      border-radius: 15px;
+      padding: 2.7em;
+      text-align: center;
+    }
+  
+    .iconGradient {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      right: 7%;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(180deg, rgba(253, 254, 255, 0) 25%, rgba(255, 142, 10, 0.133647) 75%, rgba(255, 142, 10, 0.225) 100%);;
+    }
+  
+    .iconModalImg {
+      width: 95px;
+      height: 100px;
+    }
+    .textModal{
+      font-style: normal;
+      color: #26262E;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      margin-top: 8%;
+    }
+  
+    .btnModalContext {
+      border: none;
+      border-radius: 0px 16px;
+      background-color: #26262E;
+      width: 270px;
+      height: 48px;
+      color: #fdfeff;
+      letter-spacing: 2.5px;
+      margin-top: 1.8em;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  
+    .divBtnModal {
+     display: flex;
+     flex-direction: column;
+     gap: 15px;
+    }
+    .btnSecondModal {
+      border: none;
+      background: none;
+      width: 270px;
+      height: 48px;
+      color: #26262E;
+      letter-spacing: 2.5px;
+      margin-top: 1.8em;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+  
