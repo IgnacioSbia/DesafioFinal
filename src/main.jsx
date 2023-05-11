@@ -15,6 +15,7 @@ import SearchPage from "./components/SearchPage/SearchPage.jsx";
 import PlaylistByUser from "./components/PlaylistByUser/PlaylistByUser.jsx";
 import RecoverAccount from "./components/RecoverAccount/RecoverAccount.jsx";
 import AddSongToPlaylist from "./Components/AddSongToPlaylist/AddSongToPlaylist.jsx";
+import ContextualMusic from "./components/ContextualMusic/contextualMusic.jsx";
 
 const Router = createBrowserRouter([
   { path: "/", element: <MainPage /> },
@@ -24,11 +25,12 @@ const Router = createBrowserRouter([
   { path: "/LogIn", element: <Login /> },
   { path: "/Home", element: <Home /> },
   { path: "/Home/MusicalCupid", element: <PlaylistByCupid /> },
+  { path: "/Home/ContextMusic", element: <ContextualMusic /> },
   { path: "/Profile", element: <Profile /> },
   { path: "/Profile/Config", element: <ConfigPage /> },
   { path: "/search", element: <SearchPage /> },
   { path: "/profile/playlist", element: <PlaylistByUser /> },
-  { path: "/profile/playlist/addsongs", element: <AddSongToPlaylist/> }
+  { path: "/profile/playlist/addsongs", element: <AddSongToPlaylist /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

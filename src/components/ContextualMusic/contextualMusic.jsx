@@ -2,6 +2,7 @@ import "./contextualMusic.css";
 import ArrowLeft from "./img/arrowLeft.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import ModalContextMusic from "./modalContextMusic";
 
 function ContextualMusic() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -9,6 +10,13 @@ function ContextualMusic() {
   function habilityButton() {
     setButtonDisabled(false);
   }
+
+  const [showModal, setShowModal] = useState(true);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setShowModal(false);
+  };
 
   return (
     <main className="contextualMain">
@@ -24,7 +32,7 @@ function ContextualMusic() {
           </div>
         </nav>
       </div>
-      <section className="sectionSelects">
+      <section className="sectionSelects" onClick={handleSubmit}>
         <label className="allQuestions">
           <b>¿Cuál es la ocasión?</b>
         </label>
@@ -123,6 +131,8 @@ function ContextualMusic() {
           </button>
         </Link>
       </div>
+
+      {showModal && <ModalContextMusic onClose={() => setShowModal(false)} />}
     </main>
   );
 }

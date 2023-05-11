@@ -98,16 +98,7 @@
         padding: 6px 8px;
         background: none;
         font-size: 14px;
-    }
-    .hola{
-        border: 2px solid #26262E;
-        border-radius: 0px 12px;
-        height: 36px;
-        padding: 6px 8px;
-        background: none;
-        font-size: 14px;
-    }
-   
+    }   
       .allButtons:focus-within{
         background: #26262E;
         color: #FDFEFF;
