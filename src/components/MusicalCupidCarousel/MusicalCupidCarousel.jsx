@@ -7,12 +7,16 @@ import MusicalCupidCarouselSecondItem from './Images/MusicalCupidCarouselItem2.s
 import MusicalCupidCarouselThirdtItem from './Images/MusicalCupidCarouselItem3.svg';
 import MusicalCupidCarouselHeart from './Images/MusicalCupidCarouselLikeSong.svg';
 import MusicalCupidCarouselDislike from './Images/MusicalCupidCarouselDislike.svg';
-
+import MusicalCupidCarouselSelected from './MusicalCupidCarouselItemShowOff/MusicalCupidCarouselSelected';
+import MusicalCupidCarousel4thItem from './Images/MusicalCupidCarousel4thItem.svg';
+import MusicalCupidCarousel5thItem from './Images/MusicalCupidCarousel5thItem.svg';
+import MusicalCupidCarousel6thItem from './Images/MusicalCupidCarousel6thitem.svg';
+import { Link } from 'react-router-dom';
 
 function MusicalCupidCarousel() {
 
     const [activeIndex, setActiveIndex] = useState(0);
-
+    const [songSelected, setSongSelected] = useState([])
     const items = [
         {
              artist: "Neck Deep",
@@ -26,7 +30,18 @@ function MusicalCupidCarousel() {
             artist: "Arcángel",
             icon: MusicalCupidCarouselThirdtItem
        },
-
+       {
+        artist: "Shakira",
+        icon: MusicalCupidCarousel4thItem
+       },
+       {
+        artista: "Rayos Láser",
+        icon: MusicalCupidCarousel5thItem
+       },
+       {
+        artista:"Tiesto",
+        icon: MusicalCupidCarousel6thItem
+       }
     ]
     const updateIndex = (newIndex) =>{
         if(newIndex < 0){
@@ -37,6 +52,16 @@ function MusicalCupidCarousel() {
 
         setActiveIndex(newIndex);
     };
+
+    const selectLikedSong = ()=>{
+      if(songSelected.length >= items.length){
+        alert('Can not add more artist to Musical cupid')
+      }else{
+        setSongSelected( [...songSelected, items[activeIndex]])
+        console.log(songSelected)
+      }
+      
+    }
 
   return (
     <>
@@ -60,11 +85,12 @@ function MusicalCupidCarousel() {
       <div className="carousel-buttons">
         <button
           className="button-arrowY"
-          onClick={() => {
+          onClick={ () => {
+            selectLikedSong(),
             updateIndex(activeIndex + 1);
           }}
         >
-          <span class="material-symbols-outlined"><img src={MusicalCupidCarouselHeart}/></span>{" "}
+          <span className="material-symbols-outlined"><img src={MusicalCupidCarouselHeart}/></span>{" "}
         </button>
         
         <button
@@ -73,12 +99,24 @@ function MusicalCupidCarousel() {
             updateIndex(activeIndex + 1);
           }}
         >
-          <span class="material-symbols-outlined"><img src={MusicalCupidCarouselDislike}/></span>
+          <span className="material-symbols-outlined"><img src={MusicalCupidCarouselDislike}/></span>
         </button>
       </div>
     </div>
+    <p className='MusicalCupidCupidMatches'>Matches actuales: </p>
+    <div className='MusicalCupidSongsLiked'>
+     { songSelected.map((song)=>{
+        console.log(song)
+        return <MusicalCupidCarouselSelected song={song}/>
+     })
+      
+     }
+    <div>
+
+    </div>
+    </div>
     <div className='MusicalCupidCreatePlaylist'>
-        <button className='MusicalCupidCreatePlaylistButton'>Crear Playlist</button>
+        <Link to={'/Home/PlaylistByMusicalCupid'}><button disabled={songSelected.length >= 2 ? false : true} className='MusicalCupidCreatePlaylistButton'>Crear Playlist</button></Link>
     </div>
     </>
   )

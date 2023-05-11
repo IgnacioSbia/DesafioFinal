@@ -73,7 +73,7 @@
     cursor: pointer;
     margin-top: 20px;
   }
-  .MusicalCupidCreatePlaylistButton{
+  .MusicalCupidCreatePlaylistButton:disabled{
     position: relative;
     left: 24px;
     width: 320px;
@@ -86,7 +86,37 @@
     font-style: normal;
     font-weight: bold;
     font-size: 19px;
+    bottom: 10px;
+  }
+  .MusicalCupidCreatePlaylistButton{
+    position: relative;
+    left: 24px;
+    width: 320px;
+    height: 48px;
+    border: 0.4px;
+    background: #FF8E0A;
+    border-radius: 0px 16px;
+    color: white;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    bottom: 10px;
     
   }
-  
+
+  .MusicalCupidCupidMatches{
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    left: 152px;
+    top: 606px;
+    display: flex;
+  }
+  .MusicalCupidSongsLiked{
+    display: flex;
+    position: relative;
+    right: 60px;
+  }
+ 
 }
