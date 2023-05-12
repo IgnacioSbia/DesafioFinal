@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  @media (max-width: 368px) {
+    .ModalContainerRecAccount{
+        position: absolute;
+        top: -260px;
+        left: 66%;
+        transform: translate(-50%, -65%);
+        width: 95%;
+        height: 650px;
+        background-color: white;
+        border: 1px solid #e4e6e8;
+        border-radius: 15px;
+        padding: 2.7em;
+        z-index: 2;
+        opacity: 1;
+    }
+    .MusicalCupidCarouselModalTextTwo{font-size: 18px;
+        font-weight: bold;
+        opacity: 80%;
+        letter-spacing: 1.5px;
+        text-align: center;
+    }
+    .MusicalCupidCarouselModalButtonSection{
+        display: block;
+    }
+    .MusicalCupidCarouselModalButtonUnderstand{
+        position: relative;
+        bottom: 20px;
+        border: 2px solid #080811;
+        border-radius: 10px 100px / 120px;
+        background-color: #080811;
+        width: 232px;
+        height: 48px;
+        color: #fdfeff;
+        letter-spacing: 2.5px;
+        margin-top: 1.8em;
+        font-size: 18px;
+        font-weight: bold;
+        opacity: 90%;
+    }
+    .MusicalCupidCarouselModalButtonNotAskAgain{
+        position: relative;
+        bottom: 35px;
+        border: 2px solid #fdfeff;
+        border-radius: 10px 100px / 120px;
+        background-color: #E4E6E8;
+        width: 232px;
+        height: 48px;
+        color: #080811;
+        letter-spacing: 2.5px;
+        margin-top: 1.8em;
+        font-size: 18px;
+        font-weight: bold;
+        opacity: 90%;
+    }
+  }

@@ -1,53 +1,71 @@
 import "./contextualMusic.css";
 import ArrowLeft from "./img/arrowLeft.svg";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import ModalContextMusic from "./modalContextMusic";
 
 function ContextualMusic() {
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+
+  function habilityButton() {
+    setButtonDisabled(false);
+  }
+
+  const [showModal, setShowModal] = useState(true);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setShowModal(false);
+  };
+
   return (
     <main className="contextualMain">
       <div className="contGradient">
         <nav className="navContext">
           <div className="divArrow">
-            <img src={ArrowLeft} id="arrowLeft" alt="arrowLeft" />
+            <Link to="/Home">
+              <img src={ArrowLeft} id="arrowLeft" alt="arrowLeft" />
+            </Link>
           </div>
           <div>
             <h3>Música Contextual</h3>
           </div>
         </nav>
       </div>
-      <section className="sectionSelects">
+      <section className="sectionSelects" onClick={handleSubmit}>
         <label className="allQuestions">
           <b>¿Cuál es la ocasión?</b>
         </label>
         <br />
-        <select className="allSelects">
-          <option className="options" value="Actividad" disabled selected>
+        <select className="allSelects" id="selectFirst">
+          <option className="options" name="Actividad" disabled selected>
             Actividad
           </option>
-          <option className="options" value="Ejercicio Fisico">
+          <option className="options" name="Ejercicio Fisico">
             Ejercicio Físico
           </option>
-          <option className="options" value="Limpieza">
+          <option className="options" disabled name="Limpieza">
             Limpieza
           </option>
-          <option className="options" value="Celebración">
+          <option className="options" disabled name="Celebración">
             Celebración
           </option>
-          <option className="options" value="Dormir">
+          <option className="options" disabled name="Dormir">
             Dormir
           </option>
-          <option className="options" value="Meditar">
+          <option className="options" disabled name="Meditar">
             Meditar
           </option>
-          <option className="options" value="Social">
+          <option className="options" disabled name="Social">
             Social
           </option>
-          <option className="options" value="Estudiar">
+          <option className="options" disabled name="Estudiar">
             Estudiar
           </option>
-          <option className="options" value="Relajación">
+          <option className="options" disabled name="Relajación">
             Relajación
           </option>
-          <option className="options" value="Viajando">
+          <option className="options" disabled name="Viajando">
             Viajando
           </option>
         </select>
@@ -58,7 +76,7 @@ function ContextualMusic() {
         </label>
         <br />
         <select className="allSelects" disabled>
-          <option className="options" value="Estado de animo" selected disabled>
+          <option className="options" name="Estado de animo" selected disabled>
             Estado de Ánimo
           </option>
         </select>
@@ -69,7 +87,7 @@ function ContextualMusic() {
         </label>
         <br />
         <select className="allSelects" disabled>
-          <option className="options" value="Clima" selected disabled>
+          <option className="options" name="Clima" selected disabled>
             Clima
           </option>
         </select>
@@ -98,13 +116,23 @@ function ContextualMusic() {
           <button className="allButtons">EDM</button>
         </div>
         <div className="divButtons">
-          <button className="allButtons">Electrónica</button>
+          <button className="allButtons" onClick={habilityButton}>
+            Electrónica
+          </button>
           <button className="allButtons">Disco</button>
           <button className="allButtons">New Age</button>
           <button className="allButtons">Punk</button>
         </div>
       </section>
-      <button className="buttonCrear">Crear Playlist</button>
+      <div className="divButton">
+        <Link to="/Home/MusicalCupid">
+          <button className="buttonCrear" disabled={buttonDisabled}>
+            Crear Playlist
+          </button>
+        </Link>
+      </div>
+
+      {showModal && <ModalContextMusic onClose={() => setShowModal(false)} />}
     </main>
   );
 }
