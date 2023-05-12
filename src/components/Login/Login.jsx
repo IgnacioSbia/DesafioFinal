@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import leftArrow from "../SignIn/Img/leftArrow.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [userName, setUserName] = useState("");
@@ -10,13 +10,32 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [validDataName, setValidDataName] = useState(false);
   const [validDataPassword, setValidDataPassword] = useState(false);
-
   const toggleShowPassword = () => setShowPassword(!showPassword);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Correo electrónico: ${email}`);
+    
     // Aca va código para enviar el correo electrónico al servidor
+    const user = {name: userName,
+                  password: password                
+    }
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify(user),
+      redirect: 'follow'
+    };
+    
+    fetch("http://localhost:8000/api/login", requestOptions)
+      .then(response => response.json())
+      .then(result => localStorage.setItem('token', result.token), navigate('/Home'))
+      .catch(error => console.log('error', error));
+     
   };
 
   const handleCheckboxChange = (event) => {
@@ -81,7 +100,7 @@ function Login() {
             />
           </label>
           
-          <Link to="/home">
+          
           <button
             type="submit"
             className="buttonLogin"
@@ -89,7 +108,7 @@ function Login() {
           >
             Iniciar Sesión
           </button>
-          </Link>
+          
 
           <Link to="/RecoverAccount">
           <div
