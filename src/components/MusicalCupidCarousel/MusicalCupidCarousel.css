@@ -1,0 +1,122 @@
+@media (max-width:368px) {
+    
+
+.MusicalCupidHeader{
+    display: flex;
+    left: 120px;
+    top: 50px;
+    background: linear-gradient(360deg, rgba(253, 254, 255, 0) 25%, rgba(255, 141, 10, 0.288) 75%, rgba(255, 141, 10, 0.363) 100%);
+    height: 150px;
+}
+.MusicalCupidGoHome{
+    position: absolute;
+    left: 20px;
+    background:none;
+    border: none;
+    top: 55px;
+}
+.MusicalCupidCarouselTitle{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 22px;
+    position: absolute;
+    color: #26262E;
+    left: 100px;
+    top: 50px;
+}
+
+.carousel {
+    overflow: hidden;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .inner {
+    white-space: nowrap;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .carousel-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 490px;
+    background-color: #fff;
+  }
+  
+  .carousel-item-text {
+    font-size: 1.15rem;
+    margin: 40px 0 40px 0;
+    padding: 0 20px 0 20px;
+    white-space: normal;
+    color: #617d98;
+  }
+  .carousel-img {
+    width: 250px;
+    padding: 0 20px 0 20px;
+  }
+  
+  /* final stage */
+  
+  .carousel-buttons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .button-arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  .MusicalCupidCreatePlaylistButton:disabled{
+    position: relative;
+    left: 24px;
+    width: 320px;
+    height: 48px;
+    border: 0.4px;
+    background: #E4E6E8;
+    border-radius: 0px 16px;
+    color: white;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    bottom: 10px;
+  }
+  .MusicalCupidCreatePlaylistButton{
+    position: relative;
+    left: 24px;
+    width: 320px;
+    height: 48px;
+    border: 0.4px;
+    background: #FF8E0A;
+    border-radius: 0px 16px;
+    color: white;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    bottom: 10px;
+    
+  }
+
+  .MusicalCupidCupidMatches{
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    left: 152px;
+    top: 606px;
+    display: flex;
+  }
+  .MusicalCupidSongsLiked{
+    display: flex;
+    position: relative;
+    right: 60px;
+  }
+ 
+}

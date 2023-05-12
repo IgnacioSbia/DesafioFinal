@@ -11,8 +11,12 @@ import plusaddIcon from './Images/playlistaddsongCross.svg';
 
 
 
-
 function AddSongToPlaylist() {
+
+
+  const [buttonCheck, setButtonCheck] = useState(false)
+
+  
   return (
     <div className='AddSongToPlaylist'>
         <header className='AddSongToPlaylistHeader'>
@@ -24,9 +28,7 @@ function AddSongToPlaylist() {
           <button className='AddSongToPlaylistMore'><img src={playlistMoreButton}/></button>
          </header>
         <body>
-          <div>
-
-          </div>
+          
           <div className='AddSongToPlaylistSearchBar'>
             <img className='AddSongToPlaylistLens' src={playlistLens}/>
             <input className='AddSongToPlaylistSearch'
@@ -36,6 +38,25 @@ function AddSongToPlaylist() {
              id='AddSongToPlaylistSearch'
              ></input>
              <img className='AddsongToPlaylistMicrophone' src={microphone}/>
+          </div>
+          <div className='AddSongsToPlaylistFilter'>
+            <ul className='AddSongToPlaylistFilterButtonsList'>
+              <li className='AddSongToPlaylistFilterButtonItem'>
+               <button className='AddSongsToPlaylistFilterButtons'>Sugerencias</button>
+              </li>
+              <li className='AddSongToPlaylistFilterButtonItem'>
+                <button className='AddSongsToPlaylistFilterButtons'>Recientes</button>
+              </li>
+              <li className='AddSongToPlaylistFilterButtonItem'>
+                <button className='AddSongsToPlaylistFilterButtons'>Me gusta</button>
+              </li>
+              <li className='AddSongToPlaylistFilterButtonItem'>
+                <button className='AddSongsToPlaylistFilterButtons'>Rock</button>
+              </li>
+              <li className='AddSongToPlaylistFilterButtonItem'>
+                <button className='AddSongsToPlaylistFilterButtons'>Caption</button>
+              </li>
+            </ul>
           </div>
           <div className='AddSongToPlaylistListofSongs'>
             <ul className='AddSongToPlaylistplaylist'>

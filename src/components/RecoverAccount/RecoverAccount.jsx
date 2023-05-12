@@ -2,22 +2,25 @@ import React, { useState } from "react";
 import "./RecoverAccount.css";
 import leftArrow from "./../SignIn/Img/leftArrow.svg";
 import { Link } from "react-router-dom";
+import ModalRecoverAccount from "./ModalRecoverAccount";
 
 function RecoverAccount() {
   const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Correo electrónico: ${email}`);
     // Aca va código para enviar el correo electrónico al servidor
+    setShowModal(true);
   };
 
   return (
     <div>
       <div className="formContainerRecAccount">
         <section className="formTextAccount">
-        <Link to={'/'}> <img src={leftArrow} className="leftArrowRecAccount" /> </Link>
+          <Link to={"/"}>
+            <img src={leftArrow} className="leftArrowRecAccount" />
+          </Link>
           <h5 className="TitleRecAccount">Recuperar Cuenta</h5>
         </section>
       </div>
@@ -42,10 +45,11 @@ function RecoverAccount() {
           <div>
             <button type="submit" className="buttonRecAccount">
               Continuar
-            </button>{" "}
+            </button>
           </div>
         </div>
       </form>
+      {showModal && <ModalRecoverAccount userName={userName} onClose={() => setShowModal(false)} />}
     </div>
   );
 }
