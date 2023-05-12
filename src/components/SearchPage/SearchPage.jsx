@@ -5,6 +5,7 @@ import lupa from './Icons-Images/lupa.svg'
 import placeholder from './Icons-Images/placeholder.svg'
 import './SearchPage.css'
 import NavBar from '../NavigationBar/NavBar.jsx';
+import shakiraimage from '../../assets/images/shakira-image.png'
 
 function SearchPage() {
 
@@ -125,7 +126,7 @@ function SearchPage() {
       <div className='search20wrapper'>
         { searchValue === '' && topTwenty.map((top) => (
           <div key={top.id_song} className='searchtop20'>
-            <img src={placeholder}></img>
+            <img src={top.artist_img}></img>
             <p>{top.song_name}</p>
           </div>
         ))}
