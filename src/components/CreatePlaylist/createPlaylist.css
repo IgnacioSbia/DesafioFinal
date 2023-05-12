@@ -68,6 +68,7 @@
     height: 48px;
     border-radius: 0px 16px;
     border: none;
+    left: 20px;
    }
    .btnContinue {
     position: absolute;
@@ -78,6 +79,7 @@
     height: 48px;
     border-radius: 0px 16px;
     border: none;
+    left: 20px;
    }
    .btnContinue:focus{
     border-color: #FF8E0A;

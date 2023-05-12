@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Profile.css';
 import profileImg from './Images/profileImgTest.svg';
 import profileConfigImg from './Images/profileConfig.svg'
@@ -8,6 +8,30 @@ import profilePlaylistImg from './Images/profilePlaylistImg.svg'
 import NavBar from '../NavigationBar/NavBar.jsx'
 
 function Profile() {
+    const iduser = localStorage.getItem('iduser')
+    const [playlists, setPlaylists] = useState([])
+    useEffect(() => {
+    
+        const playlistGet = async () => {
+           
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY29ycmVwcnVlYmE0IiwiaWF0IjoxNjgzODkzMjEyfQ.sMUOn_NKahpdx3nlbCRoTy1pbxqfIkJt7Q8tMbQY7hw");
+
+            var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+            };
+
+          await fetch("http://localhost:8000/api/playlistsuser?iduser=10", requestOptions)
+            .then(response => response.json())
+            .then(result => {setPlaylists(result.resultado)})
+            .catch(error => console.log('error', error));
+         };
+    playlistGet();
+    
+}, []); 
+console.log(playlists)
   return (
     <>
         <header className='profileHeader'>
@@ -23,21 +47,24 @@ function Profile() {
             <div className='profilePlaylistSection'>
                 <h2>Mis playlists</h2>
                 <img src={profilePlaylistLine}/>
-                <button className='profileCreatePlaylist'>Crear Playlist</button>
+                <Link to={'/profile/createplaylist'}><button className='profileCreatePlaylist'>Crear Playlist</button></Link>
                 
             </div>
 
             <div className='profileCreatedPlaylists'>
                 <ul className='profileCreatedPlaylistsList'>
-                    <li>
-                    <Link to ='/profile/playlist'>
-                        <div>
-                            <img src={profilePlaylistImg}/>
-                            <h3>Nombre De Prueba</h3>
-                            <p>Descripcion De </p>
-                        </div>
-                        </Link>
-                    </li>
+                    {playlists.map((item)=>{
+                        return  <li>
+                        <Link to ='/profile/playlist'>
+                            <div>
+                                <img src={profilePlaylistImg}/>
+                                <h3>{item.playlist_name}</h3>
+                            </div>
+                            </Link>
+                        </li>
+                        
+                    })}
+                   
                 </ul>
             </div>
         </main>

@@ -17,7 +17,7 @@ function CreatePlaylist() {
       <div className="topGradient">
         <nav className="navTitle">
           <div className="arrowLeft">
-            <Link to="/">
+            <Link to="/Profile">
               <img id="imgArrow" src={arrowLeft} alt="arrowLeft" />
             </Link>
           </div>
@@ -46,7 +46,7 @@ function CreatePlaylist() {
         ></input>
       </section>
       <section className="sectionBtn">
-        <Link to="">
+        <Link to="/Profile">
           <button
             id="buttonContinue"
             disabled={buttonDisabled}
