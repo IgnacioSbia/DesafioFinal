@@ -43,7 +43,7 @@ function PlaylistByUser() {
             <p className='pbutext'>¿Que espéras?</p>
             <p className='pbutext'>¡Hagamos crecer tu playlist!</p>
             <div className='pbuadddiv'>
-            <button className='pbuadd'>Añadir Canciones</button>
+            <Link to={'/profile/playlist/addsongs'}><button className='pbuadd'>Añadir Canciones</button></Link>
             </div>
         </div>
         <NavBar></NavBar>
