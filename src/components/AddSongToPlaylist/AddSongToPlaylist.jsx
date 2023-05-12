@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import playlistMoreButton from './Images/PlaylistMoreButton.svg';
 import playlistArrow from './Images/PlaylistgoBack.svg';
 import './AddSongToPlaylist.css'
@@ -15,6 +15,39 @@ function AddSongToPlaylist() {
 
 
   const [buttonCheck, setButtonCheck] = useState(false)
+  const [songData, setSongData] = useState([])
+  const [filteredSongData, setFilteredSongData] = useState(songData)
+
+  const onChangeSearch = (event) => {
+    const value = event.target.value;
+  let newfilteredSongData = [...songData]
+  newfilteredSongData = newfilteredSongData.filter((item) => {
+    return item.song_name.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+
+})
+setFilteredSongData(newfilteredSongData)
+}
+
+  useEffect(() => {
+    const cancionesGet = async () => {
+      var requestOptions = {
+        method: "GET"
+      };
+      try {
+        const response = await fetch(
+          "http://localhost:8000/api/songartist",
+          requestOptions
+        );
+        if (response.ok) {
+          const respuesta = await response.json();
+          setSongData(respuesta.SongsArtists)
+        }
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+    cancionesGet();
+  }, []);
 
   
   return (
@@ -36,6 +69,7 @@ function AddSongToPlaylist() {
              name='namesearch' 
              placeholder='Buscar'
              id='AddSongToPlaylistSearch'
+             onChange={onChangeSearch}
              ></input>
              <img className='AddsongToPlaylistMicrophone' src={microphone}/>
           </div>
@@ -60,105 +94,21 @@ function AddSongToPlaylist() {
           </div>
           <div className='AddSongToPlaylistListofSongs'>
             <ul className='AddSongToPlaylistplaylist'>
+
+             {/*  MAP */}
+             {filteredSongData.map((item) => (
             <li>
               <div className='AddSongToPlaylistSonglistItem'>
                 <img className='AddSongToPlaylistSongListImg' src={playlistSongIcon}/>
                 <div className='AddSongToPlaylistInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className=''>Neck Deep</p>
+                    <h4>{item.song_name}</h4>
+                    <p className=''>{item.artist_name}</p>
                 </div>
                 <button className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
               </div>
             </li>
-            <li>
-              <div className='AddSongToPlaylistSonglistItem'>
-                <img className='AddSongToPlaylistSongListImg' src={playlistSongIcon}/>
-                <div className='AddSongToPlaylistInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className=''>Neck Deep</p>
-                </div>
-                <button className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
-              </div>
-            </li>
-            <li>
-              <div className='AddSongToPlaylistSonglistItem'>
-                <img className='AddSongToPlaylistSongListImg' src={playlistSongIcon}/>
-                <div className='AddSongToPlaylistInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className=''>Neck Deep</p>
-                </div>
-                <button className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
-              </div>
-            </li>
-            <li>
-              <div className='AddSongToPlaylistSonglistItem'>
-                <img className='AddSongToPlaylistSongListImg' src={playlistSongIcon}/>
-                <div className='AddSongToPlaylistInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className=''>Neck Deep</p>
-                </div>
-                <button className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
-              </div>
-            </li>
-            <li>
-              <div className='AddSongToPlaylistSonglistItem'>
-                <img className='AddSongToPlaylistSongListImg' src={playlistSongIcon}/>
-                <div className='AddSongToPlaylistInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className=''>Neck Deep</p>
-                </div>
-                <button className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
-              </div>
-            </li>
-            <li>
-              <div className='AddSongToPlaylistSonglistItem'>
-                <img className='AddSongToPlaylistSongListImg' src={playlistSongIcon}/>
-                <div className='AddSongToPlaylistInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className=''>Neck Deep</p>
-                </div>
-                <button className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
-              </div>
-            </li><li>
-              <div className='AddSongToPlaylistSonglistItem'>
-                <img className='AddSongToPlaylistSongListImg' src={playlistSongIcon}/>
-                <div className='AddSongToPlaylistInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className=''>Neck Deep</p>
-                </div>
-                <button className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
-              </div>
-            </li>
-            <li>
-              <div className='AddSongToPlaylistSonglistItem'>
-                <img className='AddSongToPlaylistSongListImg' src={playlistSongIcon}/>
-                <div className='AddSongToPlaylistInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className=''>Neck Deep</p>
-                </div>
-                <button className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
-              </div>
-            </li>
-            <li>
-              <div className='AddSongToPlaylistSonglistItem'>
-                <img className='AddSongToPlaylistSongListImg' src={playlistSongIcon}/>
-                <div className='AddSongToPlaylistInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className=''>Neck Deep</p>
-                </div>
-                <button className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
-              </div>
-            </li>
-            <li>
-              <div className='AddSongToPlaylistSonglistItem'>
-                <img className='AddSongToPlaylistSongListImg' src={playlistSongIcon}/>
-                <div className='AddSongToPlaylistInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className=''>Neck Deep</p>
-                </div>
-                <button className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
-              </div>
-            </li>
+             ))}
+            {/* FIN DE MAP */}
 
             </ul>
           </div>
