@@ -10,6 +10,7 @@ import NavBar from '../NavigationBar/NavBar.jsx'
 function Profile() {
     const iduser = localStorage.getItem('iduser')
     const [playlists, setPlaylists] = useState([])
+    const [userName, setUserName] = useState('')
     useEffect(() => {
     
         const playlistGet = async () => {
@@ -27,8 +28,11 @@ function Profile() {
             .then(response => response.json())
             .then(result => {setPlaylists(result.resultado)})
             .catch(error => console.log('error', error));
+        
+        setUserName(playlists[0].user_name)
          };
     playlistGet();
+    
     
 }, []); 
 console.log(playlists)
@@ -37,7 +41,7 @@ console.log(playlists)
         <header className='profileHeader'>
             <div className='profileUserInfo'>
                 <img id='profileUserImg' src={profileImg}/>
-                <h1>Maria Pérez</h1>
+                <h1>{userName}</h1>
                 <p>@mara_pg</p>
                 <Link to={'/Profile/Config'}><button className='profileConfigButton'><img src={profileConfigImg}/></button></Link>
             </div>

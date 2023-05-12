@@ -100,14 +100,14 @@
         padding-left: 15px;
     }
     .AddSongToPlaylistAddIcon{
-        position: relative;
-        right: 20px;
-        bottom: 8px;
+        position: absolute;
+        right: 7px;
+        bottom: 32px;
     }
     .AddSongToPlaylistMoreSongs{
         position: relative;
         bottom: 20px;
-        left: 40px;
+        left: 15px;
     }
     .AddSongsToPlaylistFilter{
         position: absolute;
