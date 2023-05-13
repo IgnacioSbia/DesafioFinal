@@ -1,8 +1,9 @@
 import "./createPlaylist.css";
 import arrowLeft from "./img/arrowLeft.svg";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
 
 function CreatePlaylist() {
   const [inputValue, setInputValue] = useState("");
@@ -12,12 +13,12 @@ function CreatePlaylist() {
     setInputValue(event.target.value);
     setButtonDisabled(event.target.value === "");
   }
-
   const navigate = useNavigate();
 
   const continuar = () => {
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("iduser");
+    const playlist = {playlistname: inputValue, userid:userId}
 
     var myHeaders = new Headers();
     myHeaders.append("Authorization", token);
@@ -26,7 +27,8 @@ function CreatePlaylist() {
     const requestOptions = {
       method: "POST",
       headers: myHeaders,
-      body: JSON.stringify({ playlist_name: inputValue, id_user: userId }),
+      body: JSON.stringify(playlist),
+      redirect: 'follow'
     };
 
     fetch("http://localhost:8000/api/createPlaylist", requestOptions).then(
@@ -69,17 +71,19 @@ function CreatePlaylist() {
         ></input>
       </section>
       <section className="sectionBtn">
-        <button
-          id="buttonContinue"
-          disabled={buttonDisabled}
-          className="btnContinue"
-          onClick={continuar}
-        >
-          Continuar
-        </button>
+        <Link to="/Profile">
+          <button
+            onClick={()=>continuar()}
+            id="buttonContinue"
+            disabled={buttonDisabled}
+            className="btnContinue"
+          >
+            Continuar
+          </button>
+        </Link>
       </section>
     </main>
-  );
+  );  
 }
 
 export default CreatePlaylist;

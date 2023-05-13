@@ -8,15 +8,23 @@ import playlistSongIcon from './Images/PlaylistIconsong.svg';
 import microphone from './Images/PlaylistSearchMicrophone.svg'
 import addIcon from './Images/playlistaddSong.svg';
 import plusaddIcon from './Images/playlistaddsongCross.svg';
+import { Link } from 'react-router-dom';
 
 
 
 function AddSongToPlaylist() {
 
 
-  const [buttonCheck, setButtonCheck] = useState(false)
-  const [songData, setSongData] = useState([])
-  const [filteredSongData, setFilteredSongData] = useState(songData)
+  const [buttonCheck, setButtonCheck] = useState(false);
+  const [songData, setSongData] = useState([]);
+  const [filteredSongData, setFilteredSongData] = useState(songData);
+  const [currentIndex, setCurrentIndex] = useState();
+  const currentPlaylist = localStorage.getItem('playlistid');
+  const currentPlaylistname = localStorage.getItem('playlistname');
+  const [selectedSong, setSelectedSong] = useState();
+  const userid = localStorage.getItem('iduser');
+  const [songDataExtra, setSongDataExtra] = useState([]);
+  const token = localStorage.getItem('token');
 
   const onChangeSearch = (event) => {
     const value = event.target.value;
@@ -41,26 +49,48 @@ setFilteredSongData(newfilteredSongData)
         if (response.ok) {
           const respuesta = await response.json();
           setSongData(respuesta.SongsArtists)
+         
         }
       } catch (error) {
         alert(error.message);
       }
     };
     cancionesGet();
-    const insertIntoPlaylist = async () => {
-      
-      
-    }
-  }, []);
 
+    
+  }, []);
+  const canciones = {song: selectedSong,
+    playlistid: localStorage.getItem('playlistid')}
+    const insertIntoPlaylist = async () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", token);
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: JSON.stringify(canciones),
+    redirect: 'follow'
+    };
+
+    await fetch("http://localhost:8000/api/addSong", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
+    }
+  const handleSelectedSong = (song)=>{
+    setSelectedSong(song)
+    console.log(song)
+  }
   
   return (
     <div className='AddSongToPlaylist'>
         <header className='AddSongToPlaylistHeader'>
-          <button className='AddSongToPlaylistGoHome'><img src={playlistArrow}/></button>
+         <Link to={'/Profile'}><button className='AddSongToPlaylistGoHome'><img src={playlistArrow}/></button></Link> 
             <div>
                 <p className='AddSongToPlaylistSubTitle'>Añadir canciones:</p>
-                <h3 className='AddSongToPlaylistTitle'>Veranito</h3>
+                <h3 className='AddSongToPlaylistTitle'>{currentPlaylistname}</h3>
             </div>
           <button className='AddSongToPlaylistMore'><img src={playlistMoreButton}/></button>
          </header>
@@ -108,7 +138,7 @@ setFilteredSongData(newfilteredSongData)
                     <h4>{item.song_name}</h4>
                     <p className=''>{item.artist_name}</p>
                 </div>
-                <button className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
+                <button onClick={()=>{ handleSelectedSong(item.id_song), insertIntoPlaylist()}} className='AddSongToPlaylistMore AddSongToPlaylistMoreSongs'><img src={addIcon}/> <img className='AddSongToPlaylistAddIcon' src={plusaddIcon}/></button>
               </div>
             </li>
              ))}

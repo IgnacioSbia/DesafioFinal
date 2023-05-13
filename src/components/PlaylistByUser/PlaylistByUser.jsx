@@ -6,23 +6,27 @@ import puntos from "./Icons-Images/puntos.svg";
 import amigos from "./Icons-Images/amigos.svg";
 import NavBar from "../NavigationBar/NavBar";
 import { Link, useLocation } from "react-router-dom";
+
 //Seguro que luego hay que cambiar todo el texto por texto dinamico
 // (por ejemplo, que el titulo de la playlist sea el mismo que le dieron en crear playlist)
 
-function PlaylistByUser(props) {
-  
+function PlaylistByUser() {
+
+    const playlistname = localStorage.getItem('playlistname')
 
   return (
     <div className="pbucontainer">
       <div className="pbutopgradient"></div>
 
-      <div className="pbuheader">
-        <Link to="/profile">
-          <img src={flechita}></img>
-        </Link>
-        <h2> Veranito </h2>
-        <img className="pbudots" src={puntos}></img>
-      </div>
+
+        <div className='pbuheader'>
+            <Link to='/profile'>
+            <img src={flechita}></img>
+            </Link>
+            <h2>{playlistname}</h2>
+            <img className='pbudots' src={puntos}></img>
+        </div>
+
 
       <div className="pbucreatedby">
         <section className="pbucreatedtop">
