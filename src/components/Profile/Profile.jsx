@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import './Profile.css';
-import profileImg from './Images/profileImgTest.svg';
-import profileConfigImg from './Images/profileConfig.svg'
-import { Link } from 'react-router-dom';
-import profilePlaylistLine from './Images/profilePlaylistLine.svg'
-import profilePlaylistImg from './Images/profilePlaylistImg.svg'
-import NavBar from '../NavigationBar/NavBar.jsx'
+import React, { useEffect, useState } from "react";
+import "./Profile.css";
+import profileImg from "./Images/profileImgTest.svg";
+import profileConfigImg from "./Images/profileConfig.svg";
+import { Link } from "react-router-dom";
+import profilePlaylistLine from "./Images/profilePlaylistLine.svg";
+import profilePlaylistImg from "./Images/profilePlaylistImg.svg";
+import NavBar from "../NavigationBar/NavBar.jsx";
 
 function Profile() {
     const iduser = localStorage.getItem('iduser');
@@ -20,11 +20,11 @@ function Profile() {
             var myHeaders = new Headers();
             myHeaders.append("Authorization", token);
 
-            var requestOptions = {
-            method: 'GET',
-            headers: myHeaders,
-            redirect: 'follow'
-            };
+      var requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow",
+      };
 
           await fetch(`http://localhost:8000/api/playlistsuser?iduser=${iduser}`, requestOptions)
             .then(response => response.json())
@@ -86,7 +86,7 @@ console.log(idplaylist)
         </footer>
     
     </>
-  )
+  );
 }
 
-export default Profile
+export default Profile;

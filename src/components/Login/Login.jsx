@@ -32,8 +32,8 @@ function Login() {
     };
     
     fetch("http://localhost:8000/api/login", requestOptions)
-      .then(response => response.json())
-      .then(result => {localStorage.setItem('token', result.token),localStorage.setItem('iduser', result.id_user)}, navigate('/Home'))
+      .then(response => response.json())   .then(result => {localStorage.setItem('token', result.token),localStorage.setItem('iduser', result.id_user)}, navigate('/Home'))
+   
       .catch(error => console.log('error', error));
      
   };
