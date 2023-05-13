@@ -17,6 +17,8 @@ import { Link } from 'react-router-dom';
 
 function PlaylistByCupid() {
   const likedCupidSongs = localStorage.getItem('idartist')
+  const token = localStorage.getItem('token')
+
 
   console.log(likedCupidSongs)
   return (
