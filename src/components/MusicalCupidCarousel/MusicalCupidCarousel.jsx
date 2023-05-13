@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import arrowGoHome from './Images/MusicalCupidCarouselArrow.svg';
 import './MusicalCupidCarousel.css'
 import MusicalCupidCarouselItemsShowOff from './MusicalCupidCarouselItemShowOff/MusicalCupidCarouselItemsShowOff';
@@ -11,7 +11,7 @@ import MusicalCupidCarouselSelected from './MusicalCupidCarouselItemShowOff/Musi
 import MusicalCupidCarousel4thItem from './Images/MusicalCupidCarousel4thItem.svg';
 import MusicalCupidCarousel5thItem from './Images/MusicalCupidCarousel5thItem.svg';
 import MusicalCupidCarousel6thItem from './Images/MusicalCupidCarousel6thitem.svg';
-import { Link } from 'react-router-dom';
+import { Link, json } from 'react-router-dom';
 import MusicalCupidCarouselModal from './MusicalCupidCarouselModal/MusicalCupidCarouselModal';
 
 function MusicalCupidCarousel() {
@@ -19,34 +19,30 @@ function MusicalCupidCarousel() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [songSelected, setSongSelected] = useState([])
     const [showModal, setShowModal] = useState(false);
-    
+    const token = localStorage.getItem('token')
+    const [items, setItems] = useState([]);
+    const [artistid, setArtistid] = useState([]);
+    localStorage.setItem('idartist', JSON.stringify(artistid))
 
-    const items = [
-        {
-             artist: "Neck Deep",
-             icon: MusicalCupidCarouselFirstItem
-        },
-        {
-            artist: "Olivia Rodrigo",
-            icon: MusicalCupidCarouselSecondItem
-       },
-       {
-            artist: "Arcángel",
-            icon: MusicalCupidCarouselThirdtItem
-       },
-       {
-        artist: "Shakira",
-        icon: MusicalCupidCarousel4thItem
-       },
-       {
-        artista: "Rayos Láser",
-        icon: MusicalCupidCarousel5thItem
-       },
-       {
-        artista:"Tiesto",
-        icon: MusicalCupidCarousel6thItem
-       }
-    ]
+    useEffect(()=>{
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", token);
+
+     var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+
+    fetch("http://localhost:8000/api/artists", requestOptions)
+      .then(response => response.json())
+      .then(result => setItems(result.resultado))
+      .catch(error => console.log('error', error));
+
+    
+    },[1]) 
+    
+   
     const updateIndex = (newIndex) =>{
         if(newIndex < 0){
             newIndex = 0;
@@ -62,10 +58,12 @@ function MusicalCupidCarousel() {
         alert('Can not add more artist to Musical cupid')
       }else{
         setSongSelected( [...songSelected, items[activeIndex]])
-        console.log(songSelected)
+        setArtistid([...artistid, items[activeIndex].id_artist])
+        
       }
       
     };
+   
     
   const handleLikeOrDislike = (event) => {
     event.preventDefault();
@@ -88,6 +86,7 @@ function MusicalCupidCarousel() {
      }}
       >
         {items.map((item) => {
+          
           return <MusicalCupidCarouselItemsShowOff item={item} width={"100%"} />;
         })}
       </div>
@@ -119,8 +118,8 @@ function MusicalCupidCarousel() {
     <p className='MusicalCupidCupidMatches'>Matches actuales: </p>
     <div className='MusicalCupidSongsLiked'>
      { songSelected.map((song)=>{
-        console.log(song)
         return <MusicalCupidCarouselSelected song={song}/>
+        
      })
      
       

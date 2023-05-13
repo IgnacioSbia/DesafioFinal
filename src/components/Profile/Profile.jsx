@@ -11,15 +11,12 @@ function Profile() {
   const iduser = localStorage.getItem("iduser");
   const [playlists, setPlaylists] = useState([]);
   const [userName, setUserName] = useState("");
+  const [idplaylist, setIdplaylist] = useState([]);
+  const token = localStorage.getItem("token");
   useEffect(() => {
     const playlistGet = async () => {
-      const token = localStorage.getItem("token");
-      const userId = localStorage.getItem("iduser");
       var myHeaders = new Headers();
-      myHeaders.append(
-        "Authorization",
-         token
-      );
+      myHeaders.append("Authorization", token);
 
       var requestOptions = {
         method: "GET",
@@ -28,31 +25,37 @@ function Profile() {
       };
 
       await fetch(
-        "http://localhost:8000/api/playlistsuser?iduser="+ userId,
+        `http://localhost:8000/api/playlistsuser?iduser=${iduser}`,
         requestOptions
       )
         .then((response) => response.json())
         .then((result) => {
-            if (result.resultado) {
-          setPlaylists(result.resultado);
-            }
+          if (result.resultado) {
+            setPlaylists(result.resultado), setIdplaylist(result.resultadoid);
+          }
         })
         .catch((error) => console.log("error", error));
-      
-        if (playlists.length > 0) {
-      setUserName(playlists[0].user_name);
-        }
+
+      if (playlists.length > 0) {
+        setUserName(playlists[0].user_name);
+      }
     };
     playlistGet();
   }, []);
+
+  const handleClick = (indexid, indexname) => {
+    localStorage.setItem("playlistid", indexid),
+      localStorage.setItem("playlistname", indexname);
+  };
   console.log(playlists);
+  console.log(idplaylist);
   return (
     <>
       <header className="profileHeader">
         <div className="profileUserInfo">
           <img id="profileUserImg" src={profileImg} />
           <h1>{userName}</h1>
-          <p>@mara_pg</p>
+          <p>@UserTag</p>
           <Link to={"/Profile/Config"}>
             <button className="profileConfigButton">
               <img src={profileConfigImg} />
@@ -71,9 +74,13 @@ function Profile() {
 
         <div className="profileCreatedPlaylists">
           <ul className="profileCreatedPlaylistsList">
-            {playlists.map((item) => {
+            {(playlists, idplaylist).map((item) => {
               return (
-                <li>
+                <li key={item.id_playlist}
+                  onClick={(e) => {
+                    handleClick(item.id_playlist, item.playlist_name);
+                  }}
+                >
                   <Link to="/profile/playlist">
                     <div>
                       <img src={profilePlaylistImg} />

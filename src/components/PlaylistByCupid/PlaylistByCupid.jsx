@@ -16,6 +16,9 @@ import { Link } from 'react-router-dom';
 
 
 function PlaylistByCupid() {
+  const likedCupidSongs = localStorage.getItem('idartist')
+
+  console.log(likedCupidSongs)
   return (
     <>
     <header className='playlistByCupidHeader'>

@@ -1,10 +1,19 @@
 import React from 'react'
 import './ConfigPage.css'
 import arrow from './Icons-Images/arrow.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function ConfigPage() {
+
+  const navigate = useNavigate();
+  
+  const handleSession = ()=>{
+    localStorage.clear();
+    navigate('/')
+  };
+
+
   return (
     <div className='configcontainer'>
         <div className='configtopgradient'>
@@ -22,7 +31,7 @@ function ConfigPage() {
         <section className='configfooter'>
             <div className='configversion'>Version: v1.25.03</div>
             <hr></hr>
-            <div className='configlogout'>Cerrar Sesion</div>
+            <div onClick={handleSession} className='configlogout'>Cerrar Sesion</div>
         </section>
     </div>
   )
