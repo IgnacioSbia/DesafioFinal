@@ -2,6 +2,7 @@ import "./createPlaylist.css";
 import arrowLeft from "./img/arrowLeft.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function CreatePlaylist() {
   const [inputValue, setInputValue] = useState("");
@@ -12,12 +13,34 @@ function CreatePlaylist() {
     setButtonDisabled(event.target.value === "");
   }
 
+  const navigate = useNavigate();
+
+  const continuar = () => {
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("iduser");
+
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", token);
+    myHeaders.append("Content-Type", "application/json");
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: JSON.stringify({ playlist_name: inputValue, id_user: userId }),
+    };
+
+    fetch("http://localhost:8000/api/createPlaylist", requestOptions).then(
+      (response) => response.json()
+    );
+    navigate("/Profile/Playlist", { state: {playlist_name: inputValue }});
+  };
+
   return (
     <main className="mainPlaylist">
       <div className="topGradient">
         <nav className="navTitle">
           <div className="arrowLeft">
-            <Link to="/">
+            <Link to="/Profile">
               <img id="imgArrow" src={arrowLeft} alt="arrowLeft" />
             </Link>
           </div>
@@ -46,15 +69,14 @@ function CreatePlaylist() {
         ></input>
       </section>
       <section className="sectionBtn">
-        <Link to="">
-          <button
-            id="buttonContinue"
-            disabled={buttonDisabled}
-            className="btnContinue"
-          >
-            Continuar
-          </button>
-        </Link>
+        <button
+          id="buttonContinue"
+          disabled={buttonDisabled}
+          className="btnContinue"
+          onClick={continuar}
+        >
+          Continuar
+        </button>
       </section>
     </main>
   );

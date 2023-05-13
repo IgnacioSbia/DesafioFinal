@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import "./SignIn.css";
 import leftArrow from "./Img/leftArrow.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 function SignIn() {
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Aca va código para enviar el correo electrónico al servidor
-  };
-
+    localStorage.setItem('email',email)
+    navigate('/CheckIn')
+    };
+   
   const handleEmailChange = (event) => {
     const emailValue = event.target.value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -52,10 +56,10 @@ function SignIn() {
           </label>
           <p className="textConfirmationSignIn">Deberás poder confirmar luego.</p>
           <br />
-          <Link to="/CheckIn">
-          <button type="submit" className="buttonSignIn" disabled={validEmail ? false : true } >
+          
+          <button  type="submit" className="buttonSignIn" disabled={validEmail ? false : true } >
             Continuar
-          </button> </Link>
+          </button> 
         </div>
       </form>
     </div>

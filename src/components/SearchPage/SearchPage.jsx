@@ -5,12 +5,14 @@ import lupa from './Icons-Images/lupa.svg'
 import placeholder from './Icons-Images/placeholder.svg'
 import './SearchPage.css'
 import NavBar from '../NavigationBar/NavBar.jsx';
+import shakiraimage from '../../assets/images/shakira-image.png'
 
 function SearchPage() {
 
   const [searchValue, setSearchValue] = useState('')
   const [songData, setSongData] = useState([])
   const [filteredSongData, setFilteredSongData] = useState(songData)
+  const [topTwenty, setTopTwenty] = useState(songData)
   const searchInputSelector = document.getElementById('searchbar')
 
   const onChangeSearch = (event) => {
@@ -31,8 +33,45 @@ function SearchPage() {
 
   //conseguir info de la API
 
-  
+  //para el top 20
+/*   const canciones20 = async () => {
+    var requestOptions = {
+      method: "GET",
+    }
+    try {
+      const response20 = await fetch(
+        "http://localhost:8000/api/songartist",
+        requestOptions
+      );
+      if (response20.ok) {
+        const respuesta20 = await response20.json();
+        setTopTwenty(respuesta20.SongsArtists)
+      }
+    } catch (error) {
+      alert(error.message)
+    }
+  } 
+  canciones20() */
+  //para el search  
   useEffect(() => {
+    const canciones20 = async () => {
+      var requestOptions = {
+        method: "GET",
+      }
+      try {
+        const response20 = await fetch(
+          "http://localhost:8000/api/songartist20",
+          requestOptions
+        );
+        if (response20.ok) {
+          const respuesta20 = await response20.json();
+          setTopTwenty(respuesta20.SongsArtists)
+        }
+      } catch (error) {
+        alert(error.message)
+      }
+    } 
+    canciones20()
     const cancionesGet = async () => {
       var requestOptions = {
         method: "GET"
@@ -79,6 +118,20 @@ function SearchPage() {
         { searchValue !== '' }
         { searchValue === '' && <NavBar></NavBar>}
 
+
+     {/*    MAP DE top 20 */}
+     { searchValue === '' && <div className='search20header'>
+      <h1 className='search20headertext'>Top 20's</h1>
+      </div>}
+      <div className='search20wrapper'>
+        { searchValue === '' && topTwenty.map((top) => (
+          <div key={top.id_song} className='searchtop20'>
+            <img src={top.artist_img}></img>
+            <p>{top.song_name}</p>
+          </div>
+        ))}
+        </div>
+       {/*  MAP DE BUSQUEDA */}
         { searchValue !== '' && filteredSongData.map((item) => (
           <div className='searchresultdiv' key={item.id_song}>
             <img src={placeholder} className='searchresultpicture'></img>
