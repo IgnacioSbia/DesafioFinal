@@ -4,23 +4,46 @@ import "./CheckIn.css";
 import leftArrow from "../SignIn/Img/leftArrow.svg";
 import checkbox from "../SignIn/Img/checkbox.svg";
 import checkboxOk from "../SignIn/Img/checkboxOk.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function CheckIn() {
+
+function CheckIn(props) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [validName, setValidName] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
   const passwordMessageRef = useRef(null);
+  const mail =  localStorage.getItem('email');
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const  handleSubmit =  (event)  => {
     event.preventDefault();
     console.log(`Nombre de usuario: ${name}`);
     console.log(`Contraseña: ${password}`);
     console.log(`Checkbox seleccionado: ${isChecked}`);
+    console.log(mail)
     // Aca va código para enviar los datos al servidor
+     const user = {name:name,
+      mail:mail,
+      password:password}
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify(user),
+      redirect: 'follow'
+      };
+      fetch("http://localhost:8000/api/register", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+     
+      navigate('/Login')
   };
+  
 
   const handleCheckboxChange = (event) => {
     setIsChecked(!isChecked);
@@ -68,7 +91,7 @@ function CheckIn() {
     <div>
       <div className="formContainerCheckIn">
         <section className="formAccountTextCheckIn">
-          <img src={leftArrow} className="leftArrowCheckIn" />
+         <Link to={'/'}><img src={leftArrow} className="leftArrowCheckIn" /></Link>
           <div>
             <h5>Crear cuenta</h5>
           </div>
@@ -126,10 +149,10 @@ function CheckIn() {
               <span className="orangeTextCheckIn">Condiciones.</span>
             </div>
             <br />
-            <Link to="/Login">
+            
             <button type="submit" className="buttonCheckIn" disabled={validPassword && validName && isChecked ? false : true}>
               Continuar
-            </button>{" "} </Link>
+            </button>{" "} 
           </div>
         </div>
       </form>
