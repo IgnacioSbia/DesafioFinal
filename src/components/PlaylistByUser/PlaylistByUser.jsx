@@ -10,6 +10,9 @@ import { Link } from 'react-router-dom'
 // (por ejemplo, que el titulo de la playlist sea el mismo que le dieron en crear playlist)
 
 function PlaylistByUser() {
+
+    const playlistname = localStorage.getItem('playlistname')
+
   return (
     <div className='pbucontainer'>
         <div className='pbutopgradient'>
@@ -19,7 +22,7 @@ function PlaylistByUser() {
             <Link to='/profile'>
             <img src={flechita}></img>
             </Link>
-            <h2>Test-Veranito </h2>
+            <h2>{playlistname}</h2>
             <img className='pbudots' src={puntos}></img>
         </div>
 

@@ -8,10 +8,10 @@
   @media (max-width: 368px) {
     .ModalContainerRecAccount{
         position: absolute;
-        top: -260px;
-        left: 66%;
+        top: -250px;
+        left: -70px;
         transform: translate(-50%, -65%);
-        width: 95%;
+        width: 340px;
         height: 650px;
         background-color: white;
         border: 1px solid #e4e6e8;

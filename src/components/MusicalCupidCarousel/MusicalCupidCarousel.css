@@ -115,7 +115,7 @@
   }
   .MusicalCupidSongsLiked{
     display: flex;
-    position: relative;
+    position: absolute;
     right: 60px;
   }
  
