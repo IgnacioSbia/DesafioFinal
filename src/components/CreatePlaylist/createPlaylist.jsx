@@ -18,7 +18,7 @@ function CreatePlaylist() {
   const continuar = () => {
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("iduser");
-    const playlist = {playlistname: inputValue, userid:userId}
+    const playlist = {playlist_name: inputValue, id_user: userId}
 
     var myHeaders = new Headers();
     myHeaders.append("Authorization", token);
