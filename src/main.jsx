@@ -19,7 +19,6 @@ import ContextualMusic from "./components/ContextualMusic/contextualMusic.jsx";
 import MusicalCupidCarousel from "./Components/MusicalCupidCarousel/MusicalCupidCarousel.jsx";
 import CreatePlaylist from "./components/CreatePlaylist/createPlaylist.jsx";
 
-
 const Router = createBrowserRouter([
   { path: "/", element: <MainPage /> },
   { path: "/SignIn", element: <SignIn /> },
@@ -28,7 +27,7 @@ const Router = createBrowserRouter([
   { path: "/LogIn", element: <Login /> },
   { path: "/Home", element: <Home /> },
   { path: "/Home/ContextMusic", element: <ContextualMusic /> },
-  { path: "/Home/MusicalCupid", element: <MusicalCupidCarousel/>},
+  { path: "/Home/MusicalCupid", element: <MusicalCupidCarousel /> },
   { path: "/Home/PlaylistByMusicalCupid", element: <PlaylistByCupid /> },
   { path: "/Profile", element: <Profile /> },
   { path: "/Profile/Config", element: <ConfigPage /> },
