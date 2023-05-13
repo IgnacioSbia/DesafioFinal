@@ -1,11 +1,12 @@
 import "./contextualMusic.css";
 import ArrowLeft from "./img/arrowLeft.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ModalContextMusic from "./modalContextMusic";
 
 function ContextualMusic() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [generos, setGeneros] = useState([]);
 
   function habilityButton() {
     setButtonDisabled(false);
@@ -17,6 +18,32 @@ function ContextualMusic() {
     event.preventDefault();
     setShowModal(false);
   };
+
+  useEffect(() => {
+    const obtenerGeneros = async () => {
+      var requestOptions = {
+        method: "GET",
+        redirect: "follow",
+      };
+
+      try {
+        const response = await fetch(
+          "http://localhost:8000/api/generos",
+          requestOptions
+        );
+        if (response.ok) {
+          const respuesta = await response.json();
+          setGeneros(respuesta.genre);
+          console.log(generos);
+        } else {
+          alert("ocurrio un error del lado del cliente");
+        }
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+    obtenerGeneros();
+  }, []);
 
   return (
     <main className="contextualMain">
@@ -96,32 +123,14 @@ function ContextualMusic() {
       <section className="sectionButtons">
         <h3 className="titleGenero">Selecciona hasta 3 géneros:</h3>
         <div className="divButtons">
-          <button className="allButtons">Rock</button>
-          <button className="allButtons">Country</button>
-          <button className="allButtons">Soul</button>
-          <button className="allButtons">Jazz</button>
-          <button className="allButtons">Blues</button>
-        </div>
-        <div className="divButtons">
-          <button className="allButtons">Hip-Hop</button>
-          <button className="allButtons">Pop</button>
-          <button className="allButtons">Reggae</button>
-          <button className="allButtons">Folk</button>
-          <button className="allButtons">R&B</button>
-        </div>
-        <div className="divButtons">
-          <button className="allButtons">clásico</button>
-          <button className="allButtons">Alternativo</button>
-          <button className="allButtons">Ambiente</button>
-          <button className="allButtons">EDM</button>
-        </div>
-        <div className="divButtons">
-          <button className="allButtons" onClick={habilityButton}>
-            Electrónica
-          </button>
-          <button className="allButtons">Disco</button>
-          <button className="allButtons">New Age</button>
-          <button className="allButtons">Punk</button>
+          {generos &&
+            generos.map((genres, index) => {
+              return (
+                <button className="allButtons" value={genres.genre} key={index}>
+                  {genres.genre}
+                </button>
+              );
+            })}
         </div>
       </section>
       <div className="divButton">

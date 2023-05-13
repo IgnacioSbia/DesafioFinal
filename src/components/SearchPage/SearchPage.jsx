@@ -124,12 +124,15 @@ function SearchPage() {
       <h1 className='search20headertext'>Top 20's</h1>
       </div>}
       <div className='search20wrapper'>
-        { searchValue === '' && topTwenty.map((top) => (
-          <div key={top.id_song} className='searchtop20'>
-            <img src={top.artist_img}></img>
+        { searchValue === '' && topTwenty.map((top) => {
+          {console.log(top.artist_img)}
+          return <div key={top.id_song} className='searchtop20'>
+            <img src={`../assets/images/${top.artist_img}`}></img>
+            DesafioFinal\src\assets\images\shakira-image.png
+            DesafioFinal\src\components\SearchPage\SearchPage.jsx
             <p>{top.song_name}</p>
           </div>
-        ))}
+})}
         </div>
        {/*  MAP DE BUSQUEDA */}
         { searchValue !== '' && filteredSongData.map((item) => (
