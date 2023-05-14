@@ -10,7 +10,7 @@
     height: 100%;
 }
 .searchheader {
-    padding-top: 15%;
+    padding-top: 10%;
     padding-bottom: 15px;
     padding-left: 10%;
     width: 100%;
@@ -73,13 +73,25 @@
 }
 
 .searchtop20 {
+    width: 150px;
     max-width: 150px;
     text-align: center;
-    margin-bottom: 10px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
+.top20image {
+    width: 120px;
+}
+.searchtop {
+    font-size: 0.8rem;
 }
 .search20headertext {
     padding-top: 3%;
     padding-bottom: 8px;
     padding-left: 10%;
     width: 100%;
+    font-size: 1.5rem;
+}
+.searchspacer {
+    height: 100px;
 }
