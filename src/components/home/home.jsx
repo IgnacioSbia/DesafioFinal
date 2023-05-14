@@ -8,6 +8,31 @@ import { Link } from 'react-router-dom';
 import NavBar from '../NavigationBar/NavBar.jsx';
 
 function Home() {
+  const cupidMusic = () => {
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("iduser");
+    const playlist = {playlist_name: 'Playlist Generada', id_user: userId}
+    localStorage.setItem('cupidPlaylist', 'Playlist Generada')
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", token);
+    myHeaders.append("Content-Type", "application/json");
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: JSON.stringify(playlist),
+      redirect: 'follow'
+    };
+
+    fetch("http://localhost:8000/api/createPlaylist", requestOptions).then(
+      (response) => response.json()
+    );
+    
+
+
+
+  }
+
   return (
     <>
         <header className='homeHeader'>
@@ -24,8 +49,8 @@ function Home() {
         </header>
 
         <main className='homeMain'>
-          <Link to={'MusicalCupid'}>
-            <div className='homeMusicalCupid'>
+          <Link to={'/Home/MusicalCupid'}>
+            <div onClick={cupidMusic} className='homeMusicalCupid'>
               <div>
                 <img className='homeImg' src={musicCupid}/>
               </div>
