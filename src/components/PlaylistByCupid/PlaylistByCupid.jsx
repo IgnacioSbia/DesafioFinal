@@ -43,6 +43,7 @@ function PlaylistByCupid() {
   
    
     }
+    console.log(songByArtists)
     getSongs();
   }, [])  
   const GobackHome = ()=>{
