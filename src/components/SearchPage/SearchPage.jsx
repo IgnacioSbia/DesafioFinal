@@ -3,6 +3,7 @@ import flecha from './Icons-Images/flecha.svg'
 import x from './Icons-Images/x.svg'
 import lupa from './Icons-Images/lupa.svg'
 import placeholder from './Icons-Images/placeholder.svg'
+import placeholder2 from './Icons-Images/placeholder2.svg'
 import './SearchPage.css'
 import NavBar from '../NavigationBar/NavBar.jsx';
 import shakiraimage from '../../assets/images/shakira-image.png'
@@ -121,19 +122,18 @@ function SearchPage() {
 
      {/*    MAP DE top 20 */}
      { searchValue === '' && <div className='search20header'>
-      <h1 className='search20headertext'>Top 20's</h1>
+      <h1 className='search20headertext'>Top 20's<hr></hr></h1>
       </div>}
       <div className='search20wrapper'>
         { searchValue === '' && topTwenty.map((top) => {
-          {console.log(top.artist_img)}
           return <div key={top.id_song} className='searchtop20'>
-            <img src={`../assets/images/${top.artist_img}`}></img>
-            DesafioFinal\src\assets\images\shakira-image.png
-            DesafioFinal\src\components\SearchPage\SearchPage.jsx
-            <p>{top.song_name}</p>
+            <img className='top20image' src={placeholder2}></img>
+            <p className='searchtextmain searchtop'>{top.song_name}</p>
+            <p className='searchtextsub searchtop'>{top.artist_name}</p>
           </div>
 })}
         </div>
+        { searchValue === '' && <div className='searchspacer'></div>}
        {/*  MAP DE BUSQUEDA */}
         { searchValue !== '' && filteredSongData.map((item) => (
           <div className='searchresultdiv' key={item.id_song}>
