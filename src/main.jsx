@@ -12,7 +12,7 @@ import CheckIn from "./Components/CheckIn/CheckIn.jsx";
 import PlaylistByCupid from "./Components/PlaylistByCupid/PlaylistByCupid.jsx";
 import ConfigPage from "./Components/ConfigPage/ConfigPage.jsx";
 import SearchPage from "./components/SearchPage/SearchPage.jsx";
-import PlaylistByUser from "./components/PlaylistByUser/PlaylistByUser.jsx";
+import PlaylistByUser from "./Components/PlaylistByUser/PlaylistByUser.jsx";
 import RecoverAccount from "./components/RecoverAccount/RecoverAccount.jsx";
 import AddSongToPlaylist from "./Components/AddSongToPlaylist/AddSongToPlaylist.jsx";
 import ContextualMusic from "./components/ContextualMusic/contextualMusic.jsx";
