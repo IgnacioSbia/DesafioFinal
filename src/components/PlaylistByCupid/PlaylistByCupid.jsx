@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import playlistArrow from './Images/PlaylistgoBack.svg';
 import playlistMoreButton from './Images/PlaylistMoreButton.svg';
 import './PlaylistByCupid.css';
@@ -16,13 +16,60 @@ import { Link } from 'react-router-dom';
 
 
 function PlaylistByCupid() {
-  const likedCupidSongs = localStorage.getItem('idartist')
+  const likedCupidSongs = localStorage.getItem('idplaylist');
+  const token = localStorage.getItem('token');
+  const [songByArtists, setSongByArtists] = useState([]);
+  const likedCupidSongsArray = JSON.parse(likedCupidSongs);
 
-  console.log(likedCupidSongs)
+  useEffect(()=>{
+    const getSongs = async()=>{
+      var myHeaders = new Headers();
+    myHeaders.append("Authorization", token);
+  
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+  
+    await fetch(`http://localhost:8000/api/PlaylistSongs?playlistid=${likedCupidSongs}`, requestOptions)
+      .then(response => response.json())
+      .then((result) => {
+        if (result.resultado) {
+          setSongByArtists(result.resultado)
+        }
+      })
+      .catch(error => console.log('error', error));
+  
+   
+    }
+    getSongs();
+  }, [])  
+  const GobackHome = ()=>{
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", token);
+    myHeaders.append("Content-Type", "application/json");
+
+    const deletePlaylist = {idplaylist:likedCupidSongsArray}
+
+
+    var requestOptions = {
+      method: 'DELETE',
+      headers: myHeaders,
+      body: JSON.stringify(deletePlaylist),
+      redirect: 'follow'
+    };
+
+    fetch("http://localhost:8000/api/deletePlaylistById", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  }
+
   return (
     <>
     <header className='playlistByCupidHeader'>
-       <Link to={'/Home'}><button className='playlistByCupidGoHome'><img src={playlistArrow}/></button></Link>
+       <Link to={'/Home'}><button onClick={GobackHome} className='playlistByCupidGoHome'><img src={playlistArrow}/></button></Link>
         <div>
             <p className='playlistByCupidSubTitle'>Generada del Cupido Musical</p>
             <h2 className='playlistByCupidTitle'>Playlist Generada</h2>
@@ -59,46 +106,18 @@ function PlaylistByCupid() {
 
         <div className='playlistByCupidSongLists'>
           <ul className='playlistByCupidSongListsofSongs'>
-            <li>
-              <div className='playlistByCupdiListSongContent'>
-                <img className='playlistByCupidListSongsImg' src={playlistSongImgIconTest}/>
-                <div className='playlistByCupidListSongInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className='playlistByCupidListsSongInfoArtist'>Neck Deep</p>
-                </div>
-                <button className='playlistByCupidListMoreInfoButton'><img src={playlistMoreButton}/></button>
+           {songByArtists.map((item)=>{
+           return <li>
+            <div className='playlistByCupdiListSongContent'>
+              <img className='playlistByCupidListSongsImg' src={playlistSongImgIconTest}/>
+              <div className='playlistByCupidListSongInfo'>
+                  <h4>{item.song_name}</h4>
+                  <p className='playlistByCupidListsSongInfoArtist'>{item.artist_name}</p>
               </div>
-            </li>
-            <li>
-              <div className='playlistByCupdiListSongContent'>
-                <img className='playlistByCupidListSongsImg' src={playlistSongImgIconTest}/>
-                <div className='playlistByCupidListSongInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className='playlistByCupidListsSongInfoArtist'>Neck Deep</p>
-                </div>
-                <button className='playlistByCupidListMoreInfoButton'><img src={playlistMoreButton}/></button>
-              </div>
-            </li>
-            <li>
-              <div className='playlistByCupdiListSongContent'>
-                <img className='playlistByCupidListSongsImg' src={playlistSongImgIconTest}/>
-                <div className='playlistByCupidListSongInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className='playlistByCupidListsSongInfoArtist'>Neck Deep</p>
-                </div>
-                <button className='playlistByCupidListMoreInfoButton'><img src={playlistMoreButton}/></button>
-              </div>
-            </li>
-            <li>
-              <div className='playlistByCupdiListSongContent'>
-                <img className='playlistByCupidListSongsImg' src={playlistSongImgIconTest}/>
-                <div className='playlistByCupidListSongInfo'>
-                    <h4>Wish you were Here</h4>
-                    <p className='playlistByCupidListsSongInfoArtist'>Neck Deep</p>
-                </div>
-                <button className='playlistByCupidListMoreInfoButton'><img src={playlistMoreButton}/></button>
-              </div>
-            </li>
+              <button className='playlistByCupidListMoreInfoButton'><img src={playlistMoreButton}/></button>
+            </div>
+          </li>
+           })}
             
           </ul>
         </div>
