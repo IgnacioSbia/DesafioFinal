@@ -28,9 +28,6 @@ function Home() {
       (response) => response.json()
     );
     
-
-
-
   }
 
   return (

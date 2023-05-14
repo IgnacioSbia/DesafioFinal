@@ -68,5 +68,14 @@
         
         z-index: 2;
     }
+    #profileUserImg{
+        width: 152px;
+        height: 152px;
+    }
+    .profilePlaylistImages{
+        width: 152px;
+        height: 152px;
+        background-size: contain;
+    }
    
 }

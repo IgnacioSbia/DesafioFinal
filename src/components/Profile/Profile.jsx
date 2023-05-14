@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import profilePlaylistLine from "./Images/profilePlaylistLine.svg";
 import profilePlaylistImg from "./Images/profilePlaylistImg.svg";
 import NavBar from "../NavigationBar/NavBar.jsx";
+import profileUserImgDefault from './Images/ProfileUserPfpDefault.jpg';
+import profilePlaylistDefaultImg from './Images/ProfilePlaylistImageDefault2.png';
 
 function Profile() {
   const iduser = localStorage.getItem("iduser");
@@ -41,7 +43,7 @@ function Profile() {
       }
     };
     playlistGet();
-  }, []);
+  }, [9]);
 
   const handleClick = (indexid, indexname) => {
     localStorage.setItem("playlistid", indexid),
@@ -53,7 +55,7 @@ function Profile() {
     <>
       <header className="profileHeader">
         <div className="profileUserInfo">
-          <img id="profileUserImg" src={profileImg} />
+          <img id="profileUserImg" src={profileUserImgDefault} />
           <h1>{userName}</h1>
           <p>@UserTag</p>
           <Link to={"/Profile/Config"}>
@@ -83,7 +85,7 @@ function Profile() {
                 >
                   <Link to="/profile/playlist">
                     <div>
-                      <img src={profilePlaylistImg} />
+                      <img className="profilePlaylistImages" src={profilePlaylistDefaultImg} />
                       <h3>{item.playlist_name}</h3>
                     </div>
                   </Link>
