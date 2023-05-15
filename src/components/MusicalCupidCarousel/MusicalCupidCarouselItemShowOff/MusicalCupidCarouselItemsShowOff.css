@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: absolute;
   }
   
   .inner {
@@ -20,6 +21,8 @@
     justify-content: center;
     height: 490px;
     background-color: #fff;
+    position: relative;
+    bottom: 160px;
   }
   
   .carousel-item-artist {

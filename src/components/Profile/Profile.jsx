@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import profilePlaylistLine from "./Images/profilePlaylistLine.svg";
 import profilePlaylistImg from "./Images/profilePlaylistImg.svg";
 import NavBar from "../NavigationBar/NavBar.jsx";
-import profileUserImgDefault from './Images/ProfileUserPfpDefault.jpg';
-import profilePlaylistDefaultImg from './Images/ProfilePlaylistImageDefault2.png';
+import profileUserImgDefault from "./Images/ProfileUserPfpDefault.jpg";
+import profilePlaylistDefaultImg from "./Images/ProfilePlaylistImageDefault2.png";
 
 function Profile() {
   const iduser = localStorage.getItem("iduser");
@@ -34,16 +34,16 @@ function Profile() {
         .then((result) => {
           if (result.resultado) {
             setPlaylists(result.resultado), setIdplaylist(result.resultadoid);
+            if (result.resultado.length > 0) {
+              setUserName(result.resultado[0].user_name);
+            }
           }
         })
         .catch((error) => console.log("error", error));
-
-      if (playlists.length > 0) {
-        setUserName(playlists[0].user_name);
-      }
     };
+
     playlistGet();
-  }, [9]);
+  }, []);
 
   const handleClick = (indexid, indexname) => {
     localStorage.setItem("playlistid", indexid),
@@ -78,14 +78,18 @@ function Profile() {
           <ul className="profileCreatedPlaylistsList">
             {(playlists, idplaylist).map((item) => {
               return (
-                <li key={item.id_playlist}
+                <li
+                  key={item.id_playlist}
                   onClick={(e) => {
                     handleClick(item.id_playlist, item.playlist_name);
                   }}
                 >
                   <Link to="/profile/playlist">
                     <div>
-                      <img className="profilePlaylistImages" src={profilePlaylistDefaultImg} />
+                      <img
+                        className="profilePlaylistImages"
+                        src={profilePlaylistDefaultImg}
+                      />
                       <h3>{item.playlist_name}</h3>
                     </div>
                   </Link>
