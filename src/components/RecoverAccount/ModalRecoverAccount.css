@@ -6,6 +6,11 @@
 }
 
 @media (max-width: 368px) {
+  .modalContent{
+    position: absolute;
+    left: 73%;
+    top: 20%;
+  }
   .ModalContainerRecAccount {
     position: absolute;
     top: 55%;

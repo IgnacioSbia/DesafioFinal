@@ -35,15 +35,31 @@ function Profile() {
         .then((result) => {
           if (result.resultado) {
             setPlaylists(result.resultado), setIdplaylist(result.resultadoid);
-            if (result.resultado.length > 0) {
-              setUserName(result.resultado[0].user_name);
-            }
+          
           }
         })
         .catch((error) => console.log("error", error));
     };
 
     playlistGet();
+
+    const getUser = async()=>{
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", token);
+
+      var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      fetch(`http://localhost:8000/api/getUserbyId?userid=${iduser}`, requestOptions)
+        .then(response => response.json())
+        .then(result => setUserName(result.resultado[0].user_name))
+        .catch(error => console.log('error', error));
+      }
+      getUser();
+
   }, []);
 
   const handleClick = (indexid, indexname) => {
