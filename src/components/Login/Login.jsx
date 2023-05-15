@@ -15,27 +15,27 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+
     // Aca va código para enviar el correo electrónico al servidor
-    const user = {name: userName,
-                  password: password                
-    }
+    const user = { name: userName, password: password };
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-
     var requestOptions = {
-      method: 'POST',
+      method: "POST",
       headers: myHeaders,
       body: JSON.stringify(user),
-      redirect: 'follow'
+      redirect: "follow",
     };
-    
+
     fetch("http://localhost:8000/api/login", requestOptions)
-      .then(response => response.json())   .then(result => {localStorage.setItem('token', result.token),localStorage.setItem('iduser', result.id_user)}, navigate('/Home'))
-   
-      .catch(error => console.log('error', error));
-     
+      .then((response) => response.json())
+      .then((result) => {
+        localStorage.setItem("token", result.token),
+          localStorage.setItem("iduser", result.id_user);
+      }, navigate("/Home"))
+
+      .catch((error) => console.log("error", error));
   };
 
   const handleCheckboxChange = (event) => {
@@ -99,8 +99,7 @@ function Login() {
               className="inputBorderLogin"
             />
           </label>
-          
-          
+
           <button
             type="submit"
             className="buttonLogin"
@@ -108,24 +107,23 @@ function Login() {
           >
             Iniciar Sesión
           </button>
-          
 
           <Link to="/RecoverAccount">
-          <div
-            className="textRecPasswordLogin"
-            onClick={handleForgotPasswordClick}
-          >
-            ¿Olvidaste tu contraseña?{" "}
-          </div>  </Link>
+            <div
+              className="textRecPasswordLogin"
+              onClick={handleForgotPasswordClick}
+            >
+              ¿Olvidaste tu contraseña?{" "}
+            </div>{" "}
+          </Link>
         </div>
       </form>
     </div>
-
   );
 }
 
 export default Login;
-//Falta ver tema icono input de mostrar/ocultar, ese es el codigo, pero no consegui posicionarlo 
+//Falta ver tema icono input de mostrar/ocultar, ese es el codigo, pero no consegui posicionarlo
 
 /* <label>
 <input

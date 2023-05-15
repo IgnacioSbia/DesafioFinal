@@ -79,11 +79,14 @@
     .AddSongToPlaylistSonglistItem{
         display: flex;
         height: 70px;
+        justify-content: space-between;
+        width: 290px;
     }
     .AddSongToPlaylistListofSongs{
         position: absolute;
         top: 300px;
-        left: 60px;
+        left: 30px;
+        width: 330px;
     }
     .AddSongToPlaylistSongListImg{
         width: 48px;
@@ -93,11 +96,12 @@
     list-style: none;
     overflow-x: hidden;
     overflow-y: scroll;
-    width: 300px;
+    width: 320px;
     height: 490px;
     }
     .AddSongToPlaylistInfo{
         padding-left: 15px;
+        text-align: center;
     }
     .AddSongToPlaylistAddIcon{
         position: absolute;
@@ -117,24 +121,24 @@
     }
     .AddSongsToPlaylistFilterButtons:focus{
         padding: 6px;
-        height: 36px;
-        border: 1.5px solid #FF8E0A;
+        height: 40px;
+        border: none;
         border-radius: 0px 12px;
         color: white;
         background: #FF8E0A;
         margin: 4px;
-        min-width: 60px;
+        min-width: 70px;
        
     }
     .AddSongsToPlaylistFilterButtons{
         padding: 6px;
-        height: 36px;
-        border: 1.5px solid #26262E;
+        height: 40px;
+        border: 2px solid #26262E;
         border-radius: 0px 12px;
         color: #26262E;
         background: none;
         margin: 4px;
-        min-width: 60px;
+        min-width: 70px;
         text-align: center;
        
     }
