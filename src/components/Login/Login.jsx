@@ -30,10 +30,13 @@ function Login() {
 
     fetch("http://localhost:8000/api/login", requestOptions)
       .then((response) => response.json())
-      .then((result) => {
+      .then((result) => {if(result.token){
         localStorage.setItem("token", result.token),
           localStorage.setItem("iduser", result.id_user);
-      }, navigate("/Home"))
+           navigate("/Home")
+      }else{
+        alert('Contraseña o Nombre Incorrecto')
+      }})
 
       .catch((error) => console.log("error", error));
   };

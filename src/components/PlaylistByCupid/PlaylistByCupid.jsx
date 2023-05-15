@@ -12,6 +12,9 @@ import playlistShuffleIcon from "./Images/playlistShuffleIcon.svg";
 import playlistPlayIcon from "./Images/PlaylistPlayIcon.svg";
 import NavBar from "../NavigationBar/NavBar.jsx";
 import { Link } from "react-router-dom";
+import playlistImgByCupidPlaceHolder from './Images/PlaylistImageProfilepng.png';
+
+
 
 function PlaylistByCupid() {
   const likedCupidSongs = localStorage.getItem("idplaylist");
@@ -83,10 +86,10 @@ function PlaylistByCupid() {
       </header>
       <body>
         <div className="playlistByCupidSongs">
-          <img className="playlistByCupidSongImgs1" src={playlistsongsimg} />
-          <img className="playlistByCupidSongImgs2" src={playlistsongsimg} />
-          <img className="playlistByCupidSongImgs3" src={playlistsongsimg} />
-          <img className="playlistByCupidSongImgs4" src={playlistsongsimg} />
+          <img className="playlistByCupidSongImgs1" src={playlistImgByCupidPlaceHolder} />
+          <img className="playlistByCupidSongImgs2" src={playlistImgByCupidPlaceHolder} />
+          <img className="playlistByCupidSongImgs3" src={playlistImgByCupidPlaceHolder} />
+          <img className="playlistByCupidSongImgs4" src={playlistImgByCupidPlaceHolder} />
         </div>
 
         <div className="playlistByCupidSongOptions">

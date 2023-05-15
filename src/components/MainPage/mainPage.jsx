@@ -32,7 +32,7 @@ function MainPage() {
         </div>
         <div className="divLogin">
           <Link to="/Login">
-            <button className="btnLogin">Iniciar seción</button>
+            <button className="btnLogin">Iniciar Sesión</button>
           </Link>
         </div>
       </section>

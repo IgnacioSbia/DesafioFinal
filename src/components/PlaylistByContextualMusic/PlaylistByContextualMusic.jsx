@@ -11,6 +11,8 @@ import playlistArrow from '../ContextualMusic/img/arrowLeft.svg';
 import playlistaplhaicon  from './Images/PlaylistalphaIcon.svg';
 import playlistCheckIcon from './Images/PlaylistCheckIcon.svg';
 import NavBar from '../NavigationBar/NavBar';
+import playlistImagePlaceHolder from './Images/PlaylistImageProfilepng.png';
+
 
 function PlaylistByContextualMusic() {
     const likedCupidSongs = localStorage.getItem('idplaylist');
@@ -65,7 +67,7 @@ function PlaylistByContextualMusic() {
       .catch(error => console.log('error', error));
   }
 
-
+  console.log(songByArtists)
 
   return (
     <>
@@ -79,10 +81,10 @@ function PlaylistByContextualMusic() {
     </header>
     <body>
         <div className='playlistByCupidSongs'>
-            <img className='playlistByCupidSongImgs1' src={``}/>
-            <img className='playlistByCupidSongImgs2' src={``}/>
-            <img className='playlistByCupidSongImgs3' src={``}/>
-            <img className='playlistByCupidSongImgs4' src={``}/>
+            <img className='playlistByCupidSongImgs1' src={playlistImagePlaceHolder}/>
+            <img className='playlistByCupidSongImgs2' src={playlistImagePlaceHolder}/>
+            <img className='playlistByCupidSongImgs3' src={playlistImagePlaceHolder}/>
+            <img className='playlistByCupidSongImgs4' src={playlistImagePlaceHolder}/>
         </div>
         
         <div className='playlistByCupidSongOptions'>
