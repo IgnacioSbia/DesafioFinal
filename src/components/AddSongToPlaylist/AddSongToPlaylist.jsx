@@ -75,6 +75,10 @@ function AddSongToPlaylist() {
   };
   const handleSelectedSong = (song) => {
     setSelectedSong(song);
+    // const filterNewSongsData = filteredSongData.filter(
+    //   (songData) => songData.song !== song
+    // );
+    // setFilteredSongData(filterNewSongsData);
     console.log("song_id:" + song);
     insertIntoPlaylist(song);
   };
@@ -143,7 +147,7 @@ function AddSongToPlaylist() {
                 <div className="AddSongToPlaylistSonglistItem">
                   <img
                     className="AddSongToPlaylistSongListImg"
-                    src={playlistSongIcon}
+                    src={`/${item.artist_img}`}
                   />
                   <div className="AddSongToPlaylistInfo">
                     <h4>{item.song_name}</h4>
