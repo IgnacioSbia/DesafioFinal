@@ -90,6 +90,7 @@
         display: flex;
         justify-content: space-between;
         gap: 12px;
+        flex-wrap: wrap;
     }
     .allButtons {
         border: 2px solid #26262E;

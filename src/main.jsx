@@ -33,8 +33,8 @@ const Router = createBrowserRouter([
   { path: "/Profile/Config", element: <ConfigPage /> },
   { path: "/search", element: <SearchPage /> },
   { path: "/profile/playlist", element: <PlaylistByUser /> },
-  { path: "/profile/playlist/addsongs", element: <AddSongToPlaylist/> },
-  { path: "/profile/createPlaylist", element: <CreatePlaylist /> }
+  { path: "/profile/playlist/addsongs", element: <AddSongToPlaylist /> },
+  { path: "/profile/createPlaylist", element: <CreatePlaylist /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -8,15 +8,22 @@ function ContextualMusic() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [generos, setGeneros] = useState([]);
 
-  function habilityButton() {
+  // function habilityButton() {
+  //   setButtonDisabled(false);
+  // }
+
+  function agregarGenero(event) {
+    const buttonValue = [];
     setButtonDisabled(false);
+    buttonValue.push(event.target.value);
+    localStorage.setItem("genres", buttonValue);
   }
 
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setShowModal(false);
+    setShowModal(true);
   };
 
   useEffect(() => {
@@ -126,7 +133,12 @@ function ContextualMusic() {
           {generos &&
             generos.map((genres, index) => {
               return (
-                <button className="allButtons" value={genres.genre} key={index}>
+                <button
+                  className="allButtons"
+                  onClick={agregarGenero}
+                  value={genres.genre}
+                  key={index}
+                >
                   {genres.genre}
                 </button>
               );
