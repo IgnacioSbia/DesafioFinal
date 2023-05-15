@@ -7,7 +7,8 @@ import profilePlaylistLine from "./Images/profilePlaylistLine.svg";
 import profilePlaylistImg from "./Images/profilePlaylistImg.svg";
 import NavBar from "../NavigationBar/NavBar.jsx";
 import profileUserImgDefault from "./Images/ProfileUserPfpDefault.jpg";
-import profilePlaylistDefaultImg from "./Images/ProfilePlaylistImageDefault2.png";
+import profilePlaylistDefaultImg from "./Images/PlaylistImageProfilepng.png";
+
 
 function Profile() {
   const iduser = localStorage.getItem("iduser");
@@ -49,8 +50,6 @@ function Profile() {
     localStorage.setItem("playlistid", indexid),
       localStorage.setItem("playlistname", indexname);
   };
-  console.log(playlists);
-  console.log(idplaylist);
   return (
     <>
       <header className="profileHeader">
@@ -97,7 +96,9 @@ function Profile() {
               );
             })}
           </ul>
+          <div className="searchspacer"></div>
         </div>
+        
       </main>
       <footer className="profileFooter">
         <NavBar />

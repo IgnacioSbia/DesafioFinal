@@ -151,12 +151,15 @@
    .playlistByCupdiListSongContent{
     display: flex;
     height: 70px;
-   
+    width: 280px;
+    justify-content: space-between;   
    }
    .playlistByCupidListSongInfo{
+    text-align: center;
     padding-left: 15px;
    }
    .playlistByCupidSongListsofSongs{
+    
     list-style: none;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -169,11 +172,12 @@
     border: none;
     position: relative;
     bottom: 23px;
-    left: 10px;
+    left: 0px;
    }
    .playlistByCupidListsSongInfoArtist{
     font-size: 14px;
     font-weight: bold ;
-    opacity: 1;
+    opacity: 0.5 !important ;
+    align-items: center;
    }
 }

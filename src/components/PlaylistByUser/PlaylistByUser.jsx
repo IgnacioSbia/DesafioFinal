@@ -14,6 +14,7 @@ import playlistAddSong from "./Icons-Images/PlaylistUserAddSong.svg";
 import playlistSongImgIconTest from "./Icons-Images/playlistUserIconTest.svg";
 import playlistMoreButton from "./Icons-Images/PlaylistUserMoreButton.svg";
 import playlistUserLock from "./Icons-Images/PlaylistByUserLockImg.svg";
+import playlistimagebyuserplaceholder from './Icons-Images/PlaylistImageProfilepng.png';
 
 //Seguro que luego hay que cambiar todo el texto por texto dinamico
 // (por ejemplo, que el titulo de la playlist sea el mismo que le dieron en crear playlist)
@@ -99,19 +100,19 @@ function PlaylistByUser() {
           <div className="playlistByUserSongs">
             <img
               className="playlistByUserSongImgs1"
-              src={playlistSongImgIconTest}
+              src={playlistimagebyuserplaceholder}
             />
             <img
               className="playlistByUserSongImgs2"
-              src={playlistSongImgIconTest}
+              src={playlistimagebyuserplaceholder}
             />
             <img
               className="playlistByUserSongImgs3"
-              src={playlistSongImgIconTest}
+              src={playlistimagebyuserplaceholder}
             />
             <img
               className="playlistByUserSongImgs4"
-              src={playlistSongImgIconTest}
+              src={playlistimagebyuserplaceholder}
             />
           </div>
 
