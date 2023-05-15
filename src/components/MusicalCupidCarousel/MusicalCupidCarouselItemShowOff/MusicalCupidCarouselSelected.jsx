@@ -5,7 +5,7 @@ import './MusicalCupidCarouselSelected.css';
 function MusicalCupidCarouselSelected({song}) {
   return (
     <div className='selectedSongCarouselBox'>
-        <img className='selectedSongCarousel' src= {song.icon}/>
+        <img className='selectedSongCarousel' src= {`/${song.artist_img}`}/>
     </div>
   )
 }

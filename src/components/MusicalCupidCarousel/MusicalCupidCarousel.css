@@ -60,11 +60,13 @@
     padding: 0 20px 0 20px;
   }
   
-  /* final stage */
+ 
   
   .carousel-buttons {
+    position: relative;
     display: flex;
     justify-content: space-evenly;
+    bottom: 140px;
   }
   
   .button-arrow {
@@ -86,7 +88,7 @@
     font-style: normal;
     font-weight: bold;
     font-size: 19px;
-    bottom: 10px;
+    top: 580px;
   }
   .MusicalCupidCreatePlaylistButton{
     position: relative;
@@ -101,7 +103,7 @@
     font-style: normal;
     font-weight: bold;
     font-size: 19px;
-    bottom: 10px;
+    top: 580px;
     
   }
 

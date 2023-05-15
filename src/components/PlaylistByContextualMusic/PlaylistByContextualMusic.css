@@ -1,0 +1,178 @@
+@media (max-width:368px) {
+    .playlistByCupidHeader{
+        display: flex;
+        justify-content: space-around;
+        top:35px;
+        background: linear-gradient(360deg, rgba(253, 254, 255, 0) 25%, rgba(255, 141, 10, 0.288) 75%, rgba(255, 141, 10, 0.363) 100%);
+        height: 150px;
+    }
+    .playlistByCupidGoHome{
+        background: none;
+        border: none;
+        position: relative;
+        top: 65px;
+    }
+    .playlistByCupidMore{
+        background: none;
+        border: none;
+    }
+    .playlistByCupidTitle{
+        position: relative;
+        top: 60px;
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: bolder;
+        font-size: 23px;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        color: #26262E;
+        flex: none;
+        order: 1;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+    .playlistByCupidSubTitle{
+        position: absolute;
+        top: 30px;
+        left: 75px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: bold;
+        line-height: 18px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        color: #26262E;
+        opacity: 1;
+    }
+    .playlistByCupidSongs{
+        display: flex;
+        position: relative;
+        top: 5px;
+        left: 17.5%;
+        flex-wrap: wrap;
+        width: 304px;
+        height: 2px;
+        border-radius: 12px 12px 12px 12px;
+    }
+    .playlistByCupidSongImgs2{
+        border-radius: 0px 42.9412px 0px 0px;
+        width: 112px;
+        height: 112px;
+    
+    }
+    .playlistByCupidSongImgs1{
+        width: 112px;
+        height: 112px;
+    }
+    .playlistByCupidSongImgs3{
+        border-radius: 0px 0px 0px 42.9412px;
+        width: 112px;
+        height: 112px;
+    }
+    .playlistByCupidSongImgs4{
+        width: 112px;
+        height: 112px;
+    }
+    .playlistByCupidSongOptions{
+        position: absolute;
+        top: 400px;
+        display: flex;
+        left: 10px;
+    }
+    .playlistCupidLenght{
+        display: flex;
+        position: relative;
+        top: 10px;
+    }
+    .playlistCupidTime{
+        position: relative;
+        left: 200px;
+        color: black !important;
+        font-size: 13.1px;
+        font-weight: bolder;
+    }
+    .playlistCupidTimeWheel{
+        position: absolute;
+        left: 250px;
+        bottom: 15px;   
+    }
+   .playlistByCupidAlphaIcon{
+    background: none;
+    margin-right: 10px;
+    border: none;
+   }
+   .playlistByCupidShareIcon{
+    background: none;
+    border: none;
+    margin-left: 10px;
+   }
+   .playlistByCupidMoreOptions{
+    position: absolute;
+    top: 445px;
+    display: flex;
+    justify-content: space-around;
+   }
+   .playlistByCupidCreateCopy{
+    width: 120px;  
+    background:none;
+    border: none;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 16px;
+    line-height: 20px;
+   }
+   .playlistByCupidShuffle{
+    position: absolute;
+    left: 260px;
+    border: none;
+    background: none;
+   }
+   .playlistByCupidPlay{
+    position: absolute;
+    left: 310px;
+    top: -10px;
+    border: none;
+    background: none;
+   }
+   .playlistByCupidListSongsImg{
+    width: 48px;
+    height: 48px;
+   }
+   .playlistByCupidSongLists{
+    position: absolute;
+    top: 490px;
+    left: 40px;
+    
+    
+   }
+   .playlistByCupdiListSongContent{
+    display: flex;
+    height: 70px;
+   
+   }
+   .playlistByCupidListSongInfo{
+    padding-left: 15px;
+   }
+   .playlistByCupidSongListsofSongs{
+    list-style: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 300px;
+    height: 208px;
+   
+}
+   .playlistByCupidListMoreInfoButton{
+    background: none;
+    border: none;
+    position: relative;
+    bottom: 23px;
+    left: 10px;
+   }
+   .playlistByCupidListsSongInfoArtist{
+    font-size: 14px;
+    font-weight: bold ;
+    opacity: 1;
+   }
+}

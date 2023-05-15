@@ -7,16 +7,19 @@ import ModalContextMusic from "./modalContextMusic";
 function ContextualMusic() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [generos, setGeneros] = useState([]);
+  const idinfo = localStorage.getItem("cupidPlaylist");
+  const [playlistid, setPlaylistid] = useState();
+  const token = localStorage.getItem('token')
 
   // function habilityButton() {
   //   setButtonDisabled(false);
   // }
 
-  function agregarGenero(event) {
-    const buttonValue = [];
+  function agregarGenero(value) {
+    console.log(value)
     setButtonDisabled(false);
-    buttonValue.push(event.target.value);
-    localStorage.setItem("genres", buttonValue);
+    addSongToContextualMusic(value)
+   
   }
 
   const [showModal, setShowModal] = useState(false);
@@ -28,29 +31,93 @@ function ContextualMusic() {
 
   useEffect(() => {
     const obtenerGeneros = async () => {
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", token);
+
+      var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      fetch("http://localhost:8000/api/generos", requestOptions)
+        .then(response => response.json())
+        .then(result => setGeneros(result.result))
+        .catch(error => console.log('error', error));
+      };
+    obtenerGeneros();
+      console.log(generos)
+    const getPlaylistByName = async () => {
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", token);
+      myHeaders.append("Content-Type", "application/json");
+
       var requestOptions = {
         method: "GET",
+        headers: myHeaders,
         redirect: "follow",
       };
 
-      try {
-        const response = await fetch(
-          "http://localhost:8000/api/generos",
-          requestOptions
-        );
-        if (response.ok) {
-          const respuesta = await response.json();
-          setGeneros(respuesta.genre);
-          console.log(generos);
-        } else {
-          alert("ocurrio un error del lado del cliente");
-        }
-      } catch (error) {
-        alert(error.message);
-      }
+     await fetch(
+        `http://localhost:8000/api/playlistByName?playlistname=${idinfo}`,
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((result) => {setPlaylistid(result.resultado),  localStorage.setItem(
+          "idplaylist",
+          (result.resultado[0].id_playlist)
+        );})
+        .catch((error) => console.log("error", error));     
     };
-    obtenerGeneros();
+    getPlaylistByName();
+    console.log()
   }, []);
+
+  const addSongToContextualMusic = async (idgenre) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", token);
+    myHeaders.append("Content-Type", "application/json");
+    
+    const playlistConText = {playlistid: playlistid[0].id_playlist,
+      genreid:idgenre, };
+    
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify(playlistConText),
+      redirect: 'follow'
+    };
+
+    fetch("http://localhost:8000/api/InsertByGenre", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+    };
+
+  const GobackHome = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", token);
+    myHeaders.append("Content-Type", "application/json");
+
+    const deletePlaylist = { idplaylist: playlistid[0].id_playlist };
+
+    var requestOptions = {
+      method: "DELETE",
+      headers: myHeaders,
+      body: JSON.stringify(deletePlaylist),
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:8000/api/deletePlaylistById", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+
+
+
+
 
   return (
     <main className="contextualMain">
@@ -58,7 +125,7 @@ function ContextualMusic() {
         <nav className="navContext">
           <div className="divArrow">
             <Link to="/Home">
-              <img src={ArrowLeft} id="arrowLeft" alt="arrowLeft" />
+              <img onClick={GobackHome} src={ArrowLeft} id="arrowLeft" alt="arrowLeft" />
             </Link>
           </div>
           <div>
@@ -135,7 +202,7 @@ function ContextualMusic() {
               return (
                 <button
                   className="allButtons"
-                  onClick={agregarGenero}
+                  onClick={()=>{agregarGenero(genres.id_genre)}}
                   value={genres.genre}
                   key={index}
                 >
@@ -146,7 +213,7 @@ function ContextualMusic() {
         </div>
       </section>
       <div className="divButton">
-        <Link to="/Home/MusicalCupid">
+        <Link to="/Home/playlistByContextualMusic">
           <button className="buttonCrear" disabled={buttonDisabled}>
             Crear Playlist
           </button>

@@ -29,6 +29,27 @@ function Home() {
     );
     
   }
+  const contextMusic = () => {
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("iduser");
+    const playlist = {playlist_name: 'Playlist Generada', id_user: userId}
+    localStorage.setItem('cupidPlaylist', 'Playlist Generada')
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", token);
+    myHeaders.append("Content-Type", "application/json");
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: JSON.stringify(playlist),
+      redirect: 'follow'
+    };
+
+    fetch("http://localhost:8000/api/createPlaylist", requestOptions).then(
+      (response) => response.json()
+    );
+    
+  }
 
   return (
     <>
@@ -58,7 +79,7 @@ function Home() {
             </div>
           </Link>
           <Link to={'ContextMusic'}>
-            <div className='homeContextMusic'>
+            <div onClick={contextMusic} className='homeContextMusic'>
               <div>
                 <img className='homeImg' src={conextMusic}/>
               </div>

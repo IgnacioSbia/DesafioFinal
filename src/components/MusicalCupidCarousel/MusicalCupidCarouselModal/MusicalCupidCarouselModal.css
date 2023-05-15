@@ -8,8 +8,8 @@
   @media (max-width: 368px) {
     .ModalContainerRecAccount{
         position: absolute;
-        top: -250px;
-        left: -70px;
+        top: 290px;
+        left: -85px;
         transform: translate(-50%, -65%);
         width: 340px;
         height: 650px;
@@ -20,7 +20,8 @@
         z-index: 2;
         opacity: 1;
     }
-    .MusicalCupidCarouselModalTextTwo{font-size: 18px;
+    .MusicalCupidCarouselModalTextTwo{
+        font-size: 18px;
         font-weight: bold;
         opacity: 80%;
         letter-spacing: 1.5px;

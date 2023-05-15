@@ -34,16 +34,16 @@ function Profile() {
         .then((result) => {
           if (result.resultado) {
             setPlaylists(result.resultado), setIdplaylist(result.resultadoid);
+            if (result.resultado.length > 0) {
+              setUserName(result.resultado[0].user_name);
+            }
           }
         })
         .catch((error) => console.log("error", error));
-
-      if (playlists.length > 0) {
-        setUserName(playlists[0].user_name);
-      }
     };
+
     playlistGet();
-  }, [9]);
+  }, []);
 
   const handleClick = (indexid, indexname) => {
     localStorage.setItem("playlistid", indexid),

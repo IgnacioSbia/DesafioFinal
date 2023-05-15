@@ -51,19 +51,19 @@ function MusicalCupidCarousel() {
         redirect: "follow",
       };
 
-      fetch(
+     await fetch(
         `http://localhost:8000/api/playlistByName?playlistname=${idinfo}`,
         requestOptions
       )
         .then((response) => response.json())
-        .then((result) => setPlaylistid(result.resultado))
+        .then((result) => {setPlaylistid(result.resultado),  localStorage.setItem(
+          "idplaylist",
+          (result.resultado[0].id_playlist)
+        );})
         .catch((error) => console.log("error", error));
 
       console.log(playlistid);
-      localStorage.setItem(
-        "idplaylist",
-        JSON.stringify(playlistid[0].id_playlist)
-      );
+     
     };
     getPlaylistByName();
 
